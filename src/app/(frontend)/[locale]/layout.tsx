@@ -3,6 +3,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
+import { BackToTop } from '@/components/BackToTop'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { MouseGlow } from '@/components/MouseGlow'
@@ -82,6 +83,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
             socials={settings.socials}
             contactEmail={settings.contactEmail}
           />
+          <BackToTop />
         </NextIntlClientProvider>
       </body>
     </html>

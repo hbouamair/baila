@@ -6,7 +6,7 @@ import 'lenis/dist/lenis.css'
 
 import { Link } from '@/i18n/navigation'
 
-const HERO = '/cinematic/hero.jpg?v=5'
+const HERO = '/cinematic/hero.webp?v=6'
 
 export type FilmArtist = {
   id: string | number

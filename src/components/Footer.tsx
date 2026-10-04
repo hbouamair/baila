@@ -1,4 +1,3 @@
-import NextLink from 'next/link'
 import { getTranslations } from 'next-intl/server'
 
 import { Link } from '@/i18n/navigation'
@@ -114,9 +113,6 @@ export async function Footer({ locale, festivalName, footerNote, socials, contac
                 </a>
               </div>
             ) : null}
-            <NextLink href="/admin" className="mt-6 inline-block text-xs text-paper/30">
-              {t('admin')}
-            </NextLink>
           </div>
         </div>
 

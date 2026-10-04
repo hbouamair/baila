@@ -11,7 +11,7 @@ type ProgrammeStageProps = {
 export function ProgrammeStage({ titleLead, title, intro, seeDays, children }: ProgrammeStageProps) {
   return (
     <div className="bg-night text-paper">
-      <section className="relative min-h-[100dvh] overflow-hidden">
+      <section className="relative min-h-[72dvh] overflow-hidden sm:min-h-[100dvh]">
         <img
           src="/cinematic/plates/night.webp"
           alt=""
@@ -20,12 +20,12 @@ export function ProgrammeStage({ titleLead, title, intro, seeDays, children }: P
         <div className="pointer-events-none absolute inset-y-0 left-0 w-[82%] bg-gradient-to-r from-night via-night/60 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[56%] bg-gradient-to-t from-night via-night/45 to-transparent" />
 
-        <div className="relative z-10 flex min-h-[100dvh] flex-col justify-end px-5 pb-10 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16">
+        <div className="relative z-10 flex min-h-[72dvh] flex-col justify-end px-5 pb-16 sm:min-h-[100dvh] sm:px-10 sm:pb-32 lg:px-16 lg:pb-36">
           <div className="venue-copy">
-            <p className="font-script max-w-[10ch] text-[clamp(2.2rem,5vw,3.8rem)] leading-[1.1] text-blush">
+            <p className="font-script max-w-[12ch] text-[clamp(1.8rem,6vw,3.8rem)] leading-[1.1] text-blush">
               {titleLead}
             </p>
-            <h1 className="font-poster mt-2 text-[clamp(2.7rem,12vw,8.2rem)] leading-[0.84]">
+            <h1 className="font-poster mt-2 text-[clamp(2.4rem,11vw,8.2rem)] leading-[0.88]">
               {title}
             </h1>
           </div>
@@ -37,7 +37,7 @@ export function ProgrammeStage({ titleLead, title, intro, seeDays, children }: P
         </div>
       </section>
 
-      <Container id="schedule" className="scroll-mt-28 py-[var(--space-section)]">
+      <Container id="schedule" className="relative z-10 min-w-0 overflow-x-clip scroll-mt-28 -mt-6 px-4 pb-16 sm:-mt-14 sm:px-8 sm:pb-[var(--space-section)]">
         {children}
       </Container>
     </div>

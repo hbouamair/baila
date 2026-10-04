@@ -20,7 +20,6 @@ pnpm dev
 ```
 
 - Site : [http://localhost:3000/fr](http://localhost:3000/fr)
-- Admin : [http://localhost:3000/admin](http://localhost:3000/admin) — `admin@bailamos.local` / `admin`
 
 ## Scripts
 
@@ -89,4 +88,4 @@ PAYLOAD_PUSH=true pnpm payload migrate
 pnpm seed
 ```
 
-Admin : `/admin` — créez le premier utilisateur au premier lancement, ou utilisez le seed.
+Le panneau admin n’est pas exposé sur le site.
