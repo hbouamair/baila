@@ -20,6 +20,7 @@ export async function submitAmbassador(_prev: AmbassadorState, formData: FormDat
 
   try {
     const payload = await getPayloadClient()
+    if (!payload) return { status: 'error' }
     await payload.create({
       collection: 'contact-submissions',
       data: {

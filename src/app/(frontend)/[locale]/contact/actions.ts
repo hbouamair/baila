@@ -18,6 +18,7 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
 
   try {
     const payload = await getPayloadClient()
+    if (!payload) return { status: 'error' }
     await payload.create({
       collection: 'contact-submissions',
       data: { name, email, message, locale },

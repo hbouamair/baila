@@ -1,15 +1,48 @@
 import { cache } from 'react'
-import { getPayload } from 'payload'
+import { getPayload, type Payload } from 'payload'
 
 import config from '@payload-config'
 import type { AppLocale } from '@/i18n/routing'
+import type { PracticalInfo, SiteSetting } from '@/payload-types'
 
-export const getPayloadClient = cache(async () => {
-  return getPayload({ config })
+const fallbackSettings: SiteSetting = {
+  id: 0,
+  festivalName: 'Bailaimos',
+  city: 'Marrakech',
+  startDate: '2027-05-20',
+  endDate: '2027-05-24',
+  ticketingPlatformName: 'Go&Dance',
+  ticketingUrl: 'https://example.com/billetterie',
+  contactEmail: null,
+  plausibleDomain: null,
+  socials: [],
+  footerNote: null,
+}
+
+const fallbackPracticalInfo: PracticalInfo = {
+  id: 0,
+  venueName: 'Palm Plaza Marrakech',
+  address: null,
+  mapEmbedUrl: null,
+  access: null,
+  accommodation: null,
+}
+
+export const getPayloadClient = cache(async (): Promise<Payload | null> => {
+  try {
+    return await getPayload({ config })
+  } catch (error) {
+    console.warn('[payload] Database unavailable, using fallback content.')
+    if (process.env.NODE_ENV === 'development') {
+      console.warn(error)
+    }
+    return null
+  }
 })
 
 export async function getSiteSettings(locale: AppLocale) {
   const payload = await getPayloadClient()
+  if (!payload) return fallbackSettings
   return payload.findGlobal({
     slug: 'site-settings',
     locale,
@@ -19,6 +52,7 @@ export async function getSiteSettings(locale: AppLocale) {
 
 export async function getHome(locale: AppLocale) {
   const payload = await getPayloadClient()
+  if (!payload) return null
   return payload.findGlobal({
     slug: 'home',
     locale,
@@ -28,6 +62,7 @@ export async function getHome(locale: AppLocale) {
 
 export async function getPracticalInfo(locale: AppLocale) {
   const payload = await getPayloadClient()
+  if (!payload) return fallbackPracticalInfo
   return payload.findGlobal({
     slug: 'practical-info',
     locale,
@@ -37,6 +72,7 @@ export async function getPracticalInfo(locale: AppLocale) {
 
 export async function getPasses(locale: AppLocale) {
   const payload = await getPayloadClient()
+  if (!payload) return []
   const result = await payload.find({
     collection: 'passes',
     locale,
@@ -50,6 +86,7 @@ export async function getPasses(locale: AppLocale) {
 
 export async function getArtists(locale: AppLocale, featuredOnly = false) {
   const payload = await getPayloadClient()
+  if (!payload) return []
   const result = await payload.find({
     collection: 'artists',
     locale,
@@ -63,6 +100,7 @@ export async function getArtists(locale: AppLocale, featuredOnly = false) {
 
 export async function getArtistBySlug(slug: string, locale: AppLocale) {
   const payload = await getPayloadClient()
+  if (!payload) return null
   const result = await payload.find({
     collection: 'artists',
     locale,
@@ -75,6 +113,7 @@ export async function getArtistBySlug(slug: string, locale: AppLocale) {
 
 export async function getProgramme(locale: AppLocale) {
   const payload = await getPayloadClient()
+  if (!payload) return []
   const result = await payload.find({
     collection: 'programme',
     locale,
@@ -87,6 +126,7 @@ export async function getProgramme(locale: AppLocale) {
 
 export async function getFaqs(locale: AppLocale) {
   const payload = await getPayloadClient()
+  if (!payload) return []
   const result = await payload.find({
     collection: 'faqs',
     locale,
@@ -99,6 +139,7 @@ export async function getFaqs(locale: AppLocale) {
 
 export async function getLegalPages(locale: AppLocale) {
   const payload = await getPayloadClient()
+  if (!payload) return []
   const result = await payload.find({
     collection: 'pages',
     locale,
@@ -111,6 +152,7 @@ export async function getLegalPages(locale: AppLocale) {
 
 export async function getPageBySlug(slug: string, locale: AppLocale) {
   const payload = await getPayloadClient()
+  if (!payload) return null
   const result = await payload.find({
     collection: 'pages',
     locale,

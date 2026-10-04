@@ -47,11 +47,23 @@ Le site tourne sur Vercel. Postgres et les médias CMS vont sur Supabase.
 
 ### 2. Variables Vercel
 
+Le plus simple : **Storage → Connect to a Database → votre projet Supabase**.
+
+Sur l’écran *Configure* :
+- Environments : **Production, Preview**
+- Supabase Preview Branch : **décoché**
+- Custom Environment Variable Prefix : **vide**
+- Connect project
+
+Cela crée `POSTGRES_URL` / `POSTGRES_PRISMA_URL` avec le bon mot de passe. L’app les utilise automatiquement.
+
+Si vous préférez coller l’URI à la main, utilisez le **Transaction pooler** (port `6543`) et le vrai mot de passe de la base (pas `[YOUR-PASSWORD]`). Encodez les caractères spéciaux (`@` → `%40`).
+
 Dans le projet Vercel (Production + Preview) :
 
 | Variable | Valeur |
 | --- | --- |
-| `DATABASE_URL` | URI pooler Supabase |
+| `DATABASE_URL` | optionnel si l’intégration Supabase est connectée |
 | `PAYLOAD_SECRET` | longue chaîne aléatoire |
 | `NEXT_PUBLIC_SITE_URL` | `https://votre-domaine.vercel.app` |
 | `S3_BUCKET` | `media` |
