@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import { ArtistCard } from '@/components/ArtistCard'
+import { ArtistCard, type ArtistCardArtist } from '@/components/ArtistCard'
 import { PageHero } from '@/components/PageHero'
 import { Reveal } from '@/components/Reveal'
 import { Container } from '@/components/ui/Container'
@@ -9,7 +9,6 @@ import type { AppLocale } from '@/i18n/routing'
 import { getArtists } from '@/lib/payload'
 import { buildPageMetadata } from '@/lib/seo'
 import { featuredArtists } from '@/lib/stays'
-import type { Artist } from '@/payload-types'
 
 type PageProps = {
   params: Promise<{ locale: AppLocale }>
@@ -20,7 +19,7 @@ export async function generateMetadata({ params }: PageProps) {
   return buildPageMetadata(locale, 'artistsTitle', 'artistsDescription', '/artistes')
 }
 
-function groupArtists(artists: Artist[]) {
+function groupArtists(artists: ArtistCardArtist[]) {
   const dancers = artists.filter((artist) => artist.role !== 'dj')
   const djs = artists.filter((artist) => artist.role === 'dj')
   return { dancers, djs }
@@ -41,7 +40,7 @@ export default async function ArtistsPage({ params }: PageProps) {
       slug: featured.slug,
       role: featured.role,
       photo: featured.photo,
-    })) as Artist[]
+    }))
   const { dancers, djs } = groupArtists([...extras, ...artists])
 
   return (

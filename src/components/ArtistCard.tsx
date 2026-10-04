@@ -5,8 +5,14 @@ import type { AppLocale } from '@/i18n/routing'
 import { getMediaAlt, resolveArtistPhoto } from '@/lib/utils'
 import type { Artist } from '@/payload-types'
 
+export type ArtistCardArtist = Pick<Artist, 'name' | 'slug' | 'role'> & {
+  id: string | number
+  photo?: Artist['photo'] | string | null
+  country?: string | null
+}
+
 type ArtistCardProps = {
-  artist: Artist
+  artist: ArtistCardArtist
   locale: AppLocale
 }
 
