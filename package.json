@@ -1,0 +1,60 @@
+{
+  "name": "bailamos",
+  "version": "0.1.0",
+  "description": "Site web du festival de bachata — Next.js + Payload CMS",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --no-server-fast-refresh",
+    "devsafe": "rimraf .next && cross-env NODE_OPTIONS=--no-deprecation next dev --no-server-fast-refresh",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint src e2e next.config.ts playwright.config.ts eslint.config.mjs",
+    "typecheck": "tsc --noEmit",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "seed": "cross-env NODE_OPTIONS=--no-deprecation tsx src/seed/run.ts",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "test:e2e": "cross-env NODE_OPTIONS=--no-deprecation playwright test --config=playwright.config.ts"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "3.89.0",
+    "@payloadcms/next": "3.89.0",
+    "@payloadcms/richtext-lexical": "3.89.0",
+    "@payloadcms/storage-s3": "3.89.0",
+    "@payloadcms/translations": "3.89.0",
+    "@payloadcms/ui": "3.89.0",
+    "clsx": "^2.1.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "16.4.7",
+    "graphql": "^16.8.1",
+    "lenis": "^1.3.26",
+    "next": "16.3.3",
+    "next-intl": "^4.3.0",
+    "payload": "3.89.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sharp": "0.35.4",
+    "tailwind-merge": "^3.3.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@playwright/test": "1.58.2",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "22.19.9",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "16.3.3",
+    "postcss": "^8.5.0",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "^4.1.0",
+    "tsx": "4.22.4",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": ">=20.9.0",
+    "pnpm": ">=9"
+  }
+}
