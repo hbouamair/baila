@@ -1,4 +1,4 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "rm -rf \"src/app/(payload)\" src/collections src/globals src/seed src/payload.config.ts && pnpm run build",
   "framework": "nextjs"
 }
