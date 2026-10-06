@@ -58,15 +58,25 @@ export function getMediaAlt(media: unknown): string {
 }
 
 const exampleArtistPhotos: Record<string, string> = {
-  'aitor-y-angelica': '/examples/artists/aitor-y-angelica.jpg?v=2',
-  'victor-y-alba': '/examples/artists/victor-y-alba.jpg?v=2',
-  'daimy-y-valeria': '/examples/artists/daimy-y-valeria.jpg?v=2',
-  'kevin-y-lucia': '/examples/artists/kevin-y-lucia.jpg?v=2',
-  'jordi-judith': '/examples/artists/jordi-judith.jpg?v=2',
-  'york-lisa': '/examples/artists/york-lisa.jpg?v=2',
-  'kira-santos': '/examples/artists/kira-santos.jpg',
-  'marco-duarte': '/examples/artists/marco-duarte.jpg',
-  'dj-alma': '/examples/artists/dj-alma.jpg',
+  'aitor-y-angelica': '/examples/artists/aitor-y-angelica.jpg?v=5',
+  'victor-y-alba': '/examples/artists/victor-y-alba.jpg?v=5',
+  'daimy-y-valeria': '/examples/artists/daimy-y-valeria.jpg?v=5',
+  'jordi-judith': '/examples/artists/jordi-judith.jpg?v=5',
+  'york-lisa': '/examples/artists/york-lisa.jpg?v=5',
+  'giovana-y-rafael': '/examples/artists/giovana-y-rafael.jpg?v=5',
+  'iman-y-nadina': '/examples/artists/iman-y-nadina.jpg?v=5',
+  'smarty-y-mounia': '/examples/artists/smarty-y-mounia.jpg?v=5',
+  'sergio-y-sasha': '/examples/artists/sergio-y-sasha.jpg?v=5',
+  'jerem-y-jade': '/examples/artists/jerem-y-jade.jpg?v=5',
+  'leandro-y-jomante': '/examples/artists/leandro-y-jomante.jpg?v=5',
+  'kevin-y-lucia': '/examples/artists/kevin-y-lucia.jpg?v=5',
+  habibi: '/examples/artists/habibi.jpg?v=5',
+  sara: '/examples/artists/sara.jpg?v=5',
+  'dj-chawkey': '/examples/artists/dj-chawkey.jpg?v=5',
+  'dj-togo': '/examples/artists/dj-togo.jpg?v=5',
+  'dj-york': '/examples/artists/dj-york.jpg?v=5',
+  'dj-mr-t': '/examples/artists/dj-mr-t.jpg?v=5',
+  'dj-one': '/examples/artists/dj-one.jpg?v=5',
 }
 
 const examplePhotoPool = Object.values(exampleArtistPhotos)

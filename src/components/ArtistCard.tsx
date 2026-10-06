@@ -16,23 +16,40 @@ type ArtistCardProps = {
   locale: AppLocale
 }
 
+function splitCouple(name: string) {
+  const parts = name.split(/\s+(y|&)\s+/i)
+  if (parts.length === 3) {
+    return { lead: parts[0], join: parts[1], tail: parts[2] }
+  }
+  return null
+}
+
 export async function ArtistCard({ artist, locale }: ArtistCardProps) {
   const t = await getTranslations({ locale, namespace: 'Artists' })
   const photo = resolveArtistPhoto(artist)
   const alt = getMediaAlt(artist.photo) || artist.name
+  const couple = splitCouple(artist.name)
 
   return (
-    <Link href={{ pathname: '/artistes/[slug]', params: { slug: artist.slug } }} className="film-portrait film-frame group block">
-      <div className="film-frame-core relative aspect-[3/4]">
-        <img src={photo} alt={alt} className="h-full w-full object-cover" style={{ objectPosition: 'center 38%' }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-night via-transparent to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 p-4">
-          <h3 className="font-poster text-[1.5rem] leading-none text-paper sm:text-[1.8rem]">{artist.name}</h3>
-          <p className="mt-2 text-sm text-paper/70">
-            {t(`role_${artist.role}` as 'role_dancer')}
-            {artist.country ? ` · ${artist.country}` : ''}
-          </p>
-        </div>
+    <Link href={{ pathname: '/artistes/[slug]', params: { slug: artist.slug } }} className="artist-tile group">
+      <img src={photo} alt={alt} />
+      <div className="artist-tile-shade" />
+      <div className="artist-tile-copy">
+        <p className="artist-tile-kicker">{t(`cardKicker_${artist.role}` as 'cardKicker_dancer')}</p>
+        {artist.role === 'dj' ? null : <span className="artist-tile-pill">{t('styleBachata')}</span>}
+        {couple ? (
+          <h3 className="artist-tile-name">
+            <span className="artist-tile-lead">{couple.lead}</span>
+            <span className="font-script artist-tile-join">
+              {couple.join} {couple.tail}
+            </span>
+          </h3>
+        ) : (
+          <h3 className="artist-tile-name">
+            <span className="artist-tile-lead">{artist.name}</span>
+          </h3>
+        )}
+        {artist.country ? <p className="artist-tile-place">{artist.country}</p> : null}
       </div>
     </Link>
   )

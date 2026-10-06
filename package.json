@@ -1,19 +1,15 @@
 {
   "name": "bailamos",
   "version": "0.1.0",
-  "description": "Site web du festival de bachata — Next.js + Payload CMS",
+  "description": "Site web du festival de bachata — Next.js",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --no-server-fast-refresh",
     "devsafe": "rimraf .next && cross-env NODE_OPTIONS=--no-deprecation next dev --no-server-fast-refresh",
-    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint src e2e next.config.ts playwright.config.ts eslint.config.mjs",
     "typecheck": "tsc --noEmit",
-    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "seed": "cross-env NODE_OPTIONS=--no-deprecation tsx src/seed/run.ts",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "test:e2e": "cross-env NODE_OPTIONS=--no-deprecation playwright test --config=playwright.config.ts"
   },

@@ -3,35 +3,27 @@
 import { useEffect, useRef } from 'react'
 
 import { HotelMark } from '@/components/HotelMark'
-import { Reveal } from '@/components/Reveal'
-import { Container } from '@/components/ui/Container'
 
 export type VenueStat = {
   value: string
   label: string
 }
 
-export type VenueShot = {
-  src: string
-  caption: string
-  position?: string
-}
-
 type VenueStageProps = {
   title: string
+  headline: string
   hotel: string
   intro: string
-  place: string
-  roomsLabel: string
+  place?: string
   stats: VenueStat[]
-  shots: VenueShot[]
+  children?: React.ReactNode
 }
 
 function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value))
 }
 
-export function VenueStage({ title, hotel, intro, place, roomsLabel, stats, shots }: VenueStageProps) {
+export function VenueStage({ title, headline, intro, place, stats, children }: VenueStageProps) {
   const heroRef = useRef<HTMLElement>(null)
   const layerRef = useRef<HTMLDivElement>(null)
 
@@ -78,12 +70,14 @@ export function VenueStage({ title, hotel, intro, place, roomsLabel, stats, shot
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-night via-night/45 to-transparent" />
 
         <div className="relative z-10 flex min-h-[100dvh] flex-col justify-end px-5 pt-24 pb-8 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16">
-          <div className="venue-copy max-w-[14ch]">
-            <p className="text-sm tracking-[0.22em] text-paper/55 uppercase">{title}</p>
-            <h1 className="font-poster mt-3 text-[clamp(2.6rem,12vw,7rem)] leading-[0.86]">{hotel}</h1>
-            <p className="font-script mt-2 text-[clamp(2rem,4.4vw,3.4rem)] text-blush">{place}</p>
+          <div className="venue-copy w-full max-w-[min(72rem,96vw)]">
+            <p className="font-script max-w-none text-[clamp(2.1rem,4.2vw,3.8rem)] leading-[1.05] text-blush">{title}</p>
+            <h1 className="font-poster mt-2 max-w-none text-[clamp(2.4rem,7.2vw,6.2rem)] leading-[0.9] tracking-[-0.03em] text-balance">
+              {headline}
+            </h1>
+            {place ? <p className="mt-2 text-sm tracking-[0.18em] text-paper/50 uppercase">{place}</p> : null}
           </div>
-          <p className="venue-copy-late mt-4 max-w-[28rem] text-pretty text-paper/72 sm:mt-6 sm:text-lg">{intro}</p>
+          <p className="venue-copy-late mt-4 max-w-[44rem] text-pretty text-paper/78 sm:mt-6 sm:text-lg sm:leading-snug">{intro}</p>
           <div className="venue-copy-late mt-5">
             <HotelMark />
           </div>
@@ -98,49 +92,7 @@ export function VenueStage({ title, hotel, intro, place, roomsLabel, stats, shot
         </div>
       </section>
 
-      <Container className="pb-[var(--space-section)]">
-        <Reveal>
-          <p className="font-poster text-[clamp(2.4rem,5vw,4rem)]">{roomsLabel}</p>
-        </Reveal>
-        <div className="mt-8 grid items-end gap-5 lg:grid-cols-12">
-          {shots[0] ? (
-            <Reveal className="lg:col-span-7" delay={40}>
-              <figure className="film-portrait film-frame">
-                <div className="film-frame-core aspect-[4/5] overflow-hidden bg-velvet lg:aspect-[5/6]">
-                  <img
-                    src={shots[0].src}
-                    alt={shots[0].caption}
-                    className="h-full w-full object-cover"
-                    style={shots[0].position ? { objectPosition: shots[0].position } : undefined}
-                  />
-                </div>
-                <figcaption className="mt-3 text-sm tracking-[0.16em] text-paper/55 uppercase">
-                  {shots[0].caption}
-                </figcaption>
-              </figure>
-            </Reveal>
-          ) : null}
-          <div className="grid gap-5 lg:col-span-5 lg:translate-y-10">
-            {shots.slice(1, 3).map((shot, index) => (
-              <Reveal key={shot.src} delay={120 + index * 80}>
-                <figure className="film-portrait film-frame">
-                  <div className="film-frame-core aspect-[5/4] overflow-hidden bg-velvet">
-                    <img
-                      src={shot.src}
-                      alt={shot.caption}
-                      className="h-full w-full object-cover"
-                      style={shot.position ? { objectPosition: shot.position } : undefined}
-                    />
-                  </div>
-                  <figcaption className="mt-3 text-sm tracking-[0.16em] text-paper/55 uppercase">
-                    {shot.caption}
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </Container>
+      {children}
     </div>
   )
 }

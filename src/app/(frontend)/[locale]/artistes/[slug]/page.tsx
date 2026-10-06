@@ -49,7 +49,7 @@ export default async function ArtistDetailPage({ params }: PageProps) {
               src={photo}
               alt={cmsArtist ? getMediaAlt(cmsArtist.photo) || name : name}
               className="h-full w-full object-cover"
-              style={{ objectPosition: 'center 38%' }}
+              style={{ objectPosition: 'center 42%' }}
             />
           </div>
         </div>

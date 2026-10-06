@@ -6,15 +6,15 @@
     "passTitle": "Alojamiento y pases",
     "passDescription": "Apartamentos y habitaciones durante 3 noches en el Palm Plaza Marrakech. Precio por persona.",
     "artistsTitle": "Artistas",
-    "artistsDescription": "El line-up del festival: bailarines, DJs y profesores.",
+    "artistsDescription": "Los artistas que inspiran tus pasos, y hacen inolvidables tus recuerdos de Marrakech.",
     "programmeTitle": "Programa",
     "programmeDescription": "Talleres, fiestas y shows, día a día.",
     "infoTitle": "El lugar",
     "infoDescription": "Lugar, acceso y alojamiento para el festival.",
     "faqTitle": "FAQ",
-    "faqDescription": "Preguntas frecuentes sobre el festival y las entradas.",
+    "faqDescription": "Fechas, pases, habitaciones y viaje para Bailaimos 2027 en Marrakech.",
     "contactTitle": "Contacto",
-    "contactDescription": "Escribe al equipo del festival.",
+    "contactDescription": "Escribe al equipo de Bailaimos sobre pases, la estancia o el fin de semana en Marrakech.",
     "ambassadorsTitle": "Embajadores",
     "ambassadorsDescription": "Conviértete en embajador Bailaimos: trae tu comunidad a Marrakech, con pase gratis, hotel y comisión."
   },
@@ -138,17 +138,30 @@
     "sunday": "Domingo"
   },
   "Artists": {
-    "title": "Conoce a nuestros artistas",
+    "titleLead": "Del mundo entero",
+    "title": "Los artistas",
+    "caption": "Los artistas que inspiran tus <accent>pasos,</accent> y hacen inolvidables tus <accent>recuerdos</accent> de Marrakech.",
+    "countLabel": "{count, plural, one {# artista. Un line-up internacional.} other {# artistas. Un line-up internacional.}}",
     "intro": "Aitor y Angelica, Victor y Alba, Daimy y Valeria, Kevin y Lucia, Jordi & Judith, York & Lisa.",
-    "sectionArtists": "Artistas",
-    "sectionArtistsIntro": "El line-up de bachata del fin de semana.",
+    "sectionArtists": "La pista",
+    "sectionArtistsKicker": "Line-up 2027",
+    "sectionArtistsScript": "los guarda",
+    "sectionArtistsIntro": "Llegan de <accent>lejos.</accent> Marrakech los guarda una semana. La noche escribe el resto.",
+    "sectionNames": "{count, plural, one {# nombre} other {# nombres}}",
     "sectionDjs": "DJs",
-    "sectionDjsIntro": "Los DJs que mantienen la pista toda la noche.",
+    "sectionDjsKicker": "Noche 2027",
+    "sectionDjsScript": "la noche",
+    "sectionDjsIntro": "Sostienen la pista, desde el primer social hasta el último tema.",
+    "sectionDjNames": "{count, plural, one {# DJ} other {# DJs}}",
     "empty": "Los artistas se anunciarán pronto.",
     "back": "Volver a artistas",
     "role_dancer": "Baile",
     "role_dj": "DJ",
-    "role_teacher": "Docencia"
+    "role_teacher": "Docencia",
+    "styleBachata": "Bachata",
+    "cardKicker_dancer": "Artista",
+    "cardKicker_dj": "DJ",
+    "cardKicker_teacher": "Profesor"
   },
   "Programme": {
     "titleLead": "Jueves a domingo",
@@ -176,19 +189,37 @@
   "Info": {
     "title": "El lugar",
     "subtitle": "Marrakech",
-    "intro": "Un fin de semana de bachata en el Palm Plaza Marrakech.",
+    "heroLead": "El baile nos reúne.",
+    "heroTitle": "Quédate cerca de la magia.",
+    "intro": "Quédate en el corazón de Bailaimos. Encuentra tu alojamiento y conecta con tu comunidad entre workshops, pool parties y noches de baile inolvidables.",
     "venue": "Lugar",
     "hotel": "Palm Plaza Marrakech",
-    "hotelPlace": "Hivernage, Marrakech",
-    "rooms": "Las habitaciones",
+    "hotelPlace": "Marrakech",
+    "storyLead": "Bajo un mismo techo",
+    "storyTitle": "El festival vive en el hotel",
+    "storyBody": "Bailaimos se celebra en el Palm Plaza Marrakech, en el barrio de Hivernage. Workshops de día, socials de noche, piscina y terrazas en medio. Duermes donde bailas, a quince minutos del aeropuerto Marrakech Menara.",
+    "groundsTitle": "Los espacios",
+    "shotPool": "La piscina",
+    "shotGarden": "Los jardines",
+    "shotExterior": "El hotel",
     "shotRoom": "Habitación del apartamento",
     "shotHotelRoom": "Habitación de hotel",
     "shotTerrace": "La terraza",
+    "stayLead": "Dos formas de alojarte",
+    "stayTitle": "Apartamentos y habitación doble",
+    "stayIntro": "Cada pase incluye 3 noches, de viernes a domingo. Un apartamento para viajar en grupo, o una habitación doble de hotel más cerca de la pista.",
+    "nights": "3 noches, viernes a domingo",
+    "catTwoBedBody": "Un salón para reunirse, dos habitaciones, hasta cuatro personas. El espíritu de casa, dentro del hotel.",
+    "catOneBedBody": "Un apartamento de una habitación para dos. Más espacio que una habitación clásica, en calma entre las fiestas.",
+    "catDoubleBody": "La habitación doble del hotel, para dos personas. Duermes lo más cerca de las pistas, con el confort Palm Plaza.",
+    "ctaTitle": "Reserva tu estancia",
+    "ctaBody": "Elige el apartamento o la habitación doble y completa tu pase.",
+    "rooms": "Las habitaciones",
     "access": "Acceso",
     "accommodation": "Alojamiento",
     "empty": "La información práctica se publicará pronto.",
-    "statCityValue": "Hivernage",
-    "statCity": "Barrio",
+    "statCityValue": "Marrakech",
+    "statCity": "Ciudad",
     "statAirportValue": "15 min",
     "statAirport": "Desde RAK",
     "statWeatherValue": "28°C",
@@ -197,20 +228,101 @@
     "statDays": "De festival"
   },
   "Faq": {
+    "titleLead": "Antes de viajar",
     "title": "FAQ",
-    "intro": "¿No encuentras la respuesta? Escríbenos desde la página de contacto.",
-    "empty": "La FAQ se publicará pronto."
+    "intro": "Fechas, habitaciones, pases y pista. Si aún falta la respuesta, escríbenos.",
+    "seeQuestions": "Ver las preguntas",
+    "contactCta": "Escribir al equipo",
+    "empty": "La FAQ se publicará pronto.",
+    "groups": [
+      {
+        "id": "festival",
+        "label": "El festival",
+        "items": [
+          {
+            "q": "¿Qué es Bailaimos?",
+            "a": "Bailaimos Festival by El Baile es un festival de bachata en Marrakech. Talleres, sociales y shows, todo en el Palm Plaza Marrakech."
+          },
+          {
+            "q": "¿Cuándo es?",
+            "a": "El festival es del 20 al 24 de mayo de 2027. Los paquetes de estancia incluyen 3 noches, de viernes a domingo."
+          },
+          {
+            "q": "¿Dónde se celebra?",
+            "a": "En el Palm Plaza Marrakech, en el barrio de Hivernage. Duermes donde bailas, a unos 15 minutos del aeropuerto Marrakech Menara."
+          },
+          {
+            "q": "¿Hace falta un nivel?",
+            "a": "El festival acoge varios niveles. Los sociales están abiertos a todo el mundo. El detalle de los talleres está en la página Programa."
+          },
+          {
+            "q": "¿Puedo ir sola o solo?",
+            "a": "Sí. Muchos bailarines llegan solos y se van con una comunidad."
+          }
+        ]
+      },
+      {
+        "id": "pass",
+        "label": "Estancia y pases",
+        "items": [
+          {
+            "q": "¿Cómo reservo?",
+            "a": "Elige tu fórmula en la página de pases y completa la reserva en Go&Dance."
+          },
+          {
+            "q": "¿Qué incluye el pase?",
+            "a": "Cada pase incluye 3 noches en el Palm Plaza Marrakech, de viernes a domingo, y el acceso al festival. Los precios están en la página de pases."
+          },
+          {
+            "q": "¿Qué habitaciones hay?",
+            "a": "Un apartamento de dos dormitorios para hasta cuatro personas, un apartamento de un dormitorio para dos, o una habitación doble de hotel."
+          },
+          {
+            "q": "¿Los pases son reembolsables?",
+            "a": "Las condiciones de cancelación y reembolso son las de la plataforma de entradas."
+          }
+        ]
+      },
+      {
+        "id": "weekend",
+        "label": "El fin de semana",
+        "items": [
+          {
+            "q": "¿Qué hay cada día?",
+            "a": "Talleres, fiestas y shows de jueves a domingo. El calendario está en la página Programa."
+          },
+          {
+            "q": "¿Cómo ser embajador?",
+            "a": "Abre la página Embajadores y envía tu candidatura. Los mejores promotores reciben un pase, una estancia en el Palm Plaza Marrakech y una comisión."
+          }
+        ]
+      }
+    ]
   },
   "Contact": {
+    "titleLead": "Escríbenos",
     "title": "Contacto",
-    "intro": "¿Una pregunta sobre el festival, los pases o la organización? Envíanos un mensaje.",
+    "intro": "¿Una pregunta sobre los pases, el hotel o el fin de semana? Envía un mensaje. Leemos cada nota.",
+    "write": "Enviar un mensaje",
+    "formTitle": "Tu mensaje",
+    "formIntro": "Cuéntanos qué necesitas. Respondemos en cuanto podemos.",
     "name": "Nombre",
     "email": "Correo",
     "message": "Mensaje",
     "submit": "Enviar",
+    "sending": "Enviando…",
     "success": "Mensaje enviado. Te responderemos lo antes posible.",
-    "error": "No se pudo enviar. Inténtalo de nuevo o escríbenos por correo.",
-    "emailDirect": "Escribir a {email}"
+    "error": "No se pudo enviar. Inténtalo de nuevo en un momento.",
+    "emailDirect": "Escribir a {email}",
+    "notePlace": "El hotel",
+    "placeValue": "Palm Plaza Marrakech",
+    "noteDates": "Las fechas",
+    "datesValue": "20 al 24 de mayo de 2027",
+    "noteReply": "La respuesta",
+    "replyValue": "Leemos cada mensaje.",
+    "noteEmail": "Correo",
+    "faqCta": "Leer la FAQ",
+    "passCta": "Ver los pases"
   },
   "Ambassadors": {
     "titleLead": "Buscamos",

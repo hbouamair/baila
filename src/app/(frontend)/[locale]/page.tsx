@@ -37,14 +37,16 @@ export default async function HomePage({ params }: PageProps) {
     locale,
   )
 
-  const extras = featuredArtists.map((artist) => ({
-    id: artist.id,
-    name: artist.name,
-    slug: artist.slug,
-    roleLabel: roles('role_dancer'),
-    country: null,
-    photo: artist.photo,
-  }))
+  const extras = featuredArtists
+    .filter((artist) => artist.role !== 'dj')
+    .map((artist) => ({
+      id: artist.id,
+      name: artist.name,
+      slug: artist.slug,
+      roleLabel: roles(`role_${artist.role}` as 'role_dancer'),
+      country: null,
+      photo: artist.photo,
+    }))
   const rest = artists
     .filter((artist) => !featuredArtists.some((featured) => featured.slug === artist.slug))
     .map((artist) => ({

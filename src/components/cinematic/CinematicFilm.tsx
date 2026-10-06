@@ -170,7 +170,7 @@ export function CinematicFilm({ copy, artists, when: _when, where, date }: Cinem
                   className="film-portrait film-frame group relative block h-[64vh] w-[78vw] shrink-0 snap-center sm:w-[46vw] lg:h-[70vh] lg:w-[30vw]"
                 >
                   <div className="film-frame-core relative h-full">
-                    <img src={artist.photo} alt="" className="h-full w-full object-cover" style={{ objectPosition: 'center 38%' }} />
+                    <img src={artist.photo} alt="" className="h-full w-full object-cover" style={{ objectPosition: 'center 42%' }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-night via-transparent to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-6">
                       <p className="font-poster text-[clamp(1.8rem,3.4vw,3rem)] leading-none">{artist.name}</p>

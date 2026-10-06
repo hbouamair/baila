@@ -1,9 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { ContactForm } from '@/components/ContactForm'
-import { PageHero } from '@/components/PageHero'
-import { Container } from '@/components/ui/Container'
-import { Section } from '@/components/ui/Section'
+import { ContactStage } from '@/components/contact/ContactStage'
 import type { AppLocale } from '@/i18n/routing'
 import { getSiteSettings } from '@/lib/payload'
 import { buildPageMetadata } from '@/lib/seo'
@@ -25,35 +23,30 @@ export default async function ContactPage({ params }: PageProps) {
     getTranslations({ locale, namespace: 'Contact' }),
   ])
 
+  const notes = [
+    { label: t('notePlace'), value: t('placeValue') },
+    { label: t('noteDates'), value: t('datesValue') },
+    { label: t('noteReply'), value: t('replyValue') },
+  ]
+  const socials = (settings.socials ?? [])
+    .filter((item) => item.label && item.url && !/^https?:\/\/(www\.)?instagram\.com\/?$/i.test(item.url))
+    .map((item) => ({ label: item.label, url: item.url }))
+
+  if (settings.contactEmail) {
+    notes.push({ label: t('noteEmail'), value: settings.contactEmail })
+  }
+
   return (
-    <>
-      <PageHero title={t('title')} intro={t('intro')} />
-      <Section>
-        <Container className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
-          <div className="flex flex-wrap gap-3">
-            {settings.contactEmail ? (
-              <a
-                href={`mailto:${settings.contactEmail}`}
-                className="inline-flex min-h-11 items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm transition-[border-color,color] duration-200 hover:border-gold hover:text-gold"
-              >
-                {t('emailDirect', { email: settings.contactEmail })}
-              </a>
-            ) : null}
-            {settings.socials?.map((item) => (
-              <a
-                key={item.url}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm transition-[border-color,color] duration-200 hover:border-gold hover:text-gold"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-          <ContactForm locale={locale} />
-        </Container>
-      </Section>
-    </>
+    <ContactStage
+      titleLead={t('titleLead')}
+      title={t('title')}
+      intro={t('intro')}
+      write={t('write')}
+      notes={notes}
+      faqCta={t('faqCta')}
+      passCta={t('passCta')}
+    >
+      <ContactForm locale={locale} socials={socials} />
+    </ContactStage>
   )
 }

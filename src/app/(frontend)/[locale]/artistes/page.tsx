@@ -1,10 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import { ArtistCard, type ArtistCardArtist } from '@/components/ArtistCard'
-import { PageHero } from '@/components/PageHero'
-import { Reveal } from '@/components/Reveal'
-import { Container } from '@/components/ui/Container'
-import { Section } from '@/components/ui/Section'
+import { ArtistsStage } from '@/components/artists/ArtistsStage'
 import type { AppLocale } from '@/i18n/routing'
 import { getArtists } from '@/lib/payload'
 import { buildPageMetadata } from '@/lib/seo'
@@ -17,12 +13,6 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params
   return buildPageMetadata(locale, 'artistsTitle', 'artistsDescription', '/artistes')
-}
-
-function groupArtists(artists: ArtistCardArtist[]) {
-  const dancers = artists.filter((artist) => artist.role !== 'dj')
-  const djs = artists.filter((artist) => artist.role === 'dj')
-  return { dancers, djs }
 }
 
 export default async function ArtistsPage({ params }: PageProps) {
@@ -38,50 +28,37 @@ export default async function ArtistsPage({ params }: PageProps) {
     slug: featured.slug,
     role: featured.role,
     photo: featured.photo,
+    country: null,
   }))
   const rest = artists.filter((artist) => !featuredArtists.some((featured) => featured.slug === artist.slug))
   const lineup = [...extras, ...rest]
-  const { dancers, djs } = groupArtists(lineup)
+  const dancers = lineup.filter((artist) => artist.role !== 'dj')
+  const djs = lineup.filter((artist) => artist.role === 'dj')
 
   return (
-    <>
-      <PageHero title={t('title')} intro={t('intro')} />
-      <Section>
-        <Container>
-          {lineup.length ? (
-            <div className="space-y-16">
-              {dancers.length ? (
-                <div>
-                  <h2 className="font-poster text-[clamp(2rem,4vw,3.4rem)] text-paper">{t('sectionArtists')}</h2>
-                  <p className="mt-2 max-w-xl text-sm text-paper/60">{t('sectionArtistsIntro')}</p>
-                  <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-                    {dancers.map((artist, index) => (
-                      <Reveal key={artist.id} delay={(index % 5) * 70}>
-                        <ArtistCard artist={artist} locale={locale} />
-                      </Reveal>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-              {djs.length ? (
-                <div>
-                  <h2 className="font-poster text-[clamp(2rem,4vw,3.4rem)] text-paper">{t('sectionDjs')}</h2>
-                  <p className="mt-2 max-w-xl text-sm text-paper/60">{t('sectionDjsIntro')}</p>
-                  <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-                    {djs.map((artist, index) => (
-                      <Reveal key={artist.id} delay={(index % 5) * 70}>
-                        <ArtistCard artist={artist} locale={locale} />
-                      </Reveal>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-            </div>
-          ) : (
-            <p className="text-ink-muted">{t('empty')}</p>
-          )}
-        </Container>
-      </Section>
-    </>
+    <ArtistsStage
+      locale={locale}
+      titleLead={t('titleLead')}
+      title={t('title')}
+      caption={t.rich('caption', {
+        accent: (chunks) => <span className="font-script text-[1.15em] leading-none text-blush">{chunks}</span>,
+      })}
+      countLabel={t('countLabel', { count: lineup.length })}
+      sectionKicker={t('sectionArtistsKicker')}
+      sectionDisplay={t('sectionArtists')}
+      sectionScript={t('sectionArtistsScript')}
+      sectionIntro={t.rich('sectionArtistsIntro', {
+        accent: (chunks) => <span className="font-script text-[1.2em] leading-none text-blush">{chunks}</span>,
+      })}
+      sectionNames={t('sectionNames', { count: dancers.length })}
+      sectionDjs={t('sectionDjs')}
+      sectionDjsKicker={t('sectionDjsKicker')}
+      sectionDjsScript={t('sectionDjsScript')}
+      sectionDjsIntro={t('sectionDjsIntro')}
+      sectionDjNames={t('sectionDjNames', { count: djs.length })}
+      empty={t('empty')}
+      dancers={dancers}
+      djs={djs}
+    />
   )
 }
