@@ -5,7 +5,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
+    "prebuild": "node ./scripts/strip-payload.mjs",
+    "build": "node ./scripts/strip-payload.mjs && cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --no-server-fast-refresh",
     "devsafe": "rimraf .next && cross-env NODE_OPTIONS=--no-deprecation next dev --no-server-fast-refresh",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint src e2e next.config.ts playwright.config.ts eslint.config.mjs",
