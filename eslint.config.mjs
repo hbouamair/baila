@@ -11,7 +11,7 @@ export default defineConfig([
     'build/**',
     'next-env.d.ts',
     'src/payload-types.ts',
-    'src/app/(payload)/admin/importMap.js',
+    'src/app/(payload)/**',
     'media/**',
     'playwright-report/**',
     'test-results/**',
