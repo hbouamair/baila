@@ -58,8 +58,12 @@ export function getMediaAlt(media: unknown): string {
 }
 
 const exampleArtistPhotos: Record<string, string> = {
-  'kevin-y-lucia': '/examples/artists/kevin-y-lucia.jpg',
-  'jordi-judith': '/examples/artists/jordi-judith.jpg',
+  'aitor-y-angelica': '/examples/artists/aitor-y-angelica.jpg?v=2',
+  'victor-y-alba': '/examples/artists/victor-y-alba.jpg?v=2',
+  'daimy-y-valeria': '/examples/artists/daimy-y-valeria.jpg?v=2',
+  'kevin-y-lucia': '/examples/artists/kevin-y-lucia.jpg?v=2',
+  'jordi-judith': '/examples/artists/jordi-judith.jpg?v=2',
+  'york-lisa': '/examples/artists/york-lisa.jpg?v=2',
   'kira-santos': '/examples/artists/kira-santos.jpg',
   'marco-duarte': '/examples/artists/marco-duarte.jpg',
   'dj-alma': '/examples/artists/dj-alma.jpg',

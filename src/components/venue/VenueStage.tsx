@@ -11,6 +11,12 @@ export type VenueStat = {
   label: string
 }
 
+export type VenueShot = {
+  src: string
+  caption: string
+  position?: string
+}
+
 type VenueStageProps = {
   title: string
   hotel: string
@@ -18,13 +24,14 @@ type VenueStageProps = {
   place: string
   roomsLabel: string
   stats: VenueStat[]
+  shots: VenueShot[]
 }
 
 function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value))
 }
 
-export function VenueStage({ title, hotel, intro, place, roomsLabel, stats }: VenueStageProps) {
+export function VenueStage({ title, hotel, intro, place, roomsLabel, stats, shots }: VenueStageProps) {
   const heroRef = useRef<HTMLElement>(null)
   const layerRef = useRef<HTMLDivElement>(null)
 
@@ -62,9 +69,9 @@ export function VenueStage({ title, hotel, intro, place, roomsLabel, stats }: Ve
       <section ref={heroRef} className="relative min-h-[100dvh] overflow-hidden">
         <div ref={layerRef} className="absolute inset-0 origin-center will-change-transform">
           <img
-            src="/venue/exterior.jpg"
+            src="/venue/lobby-atrium.jpg"
             alt=""
-            className="venue-enter absolute inset-0 h-full w-full object-cover object-center"
+            className="venue-enter absolute inset-0 h-full w-full object-cover object-[center_35%]"
           />
         </div>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-[72%] bg-gradient-to-r from-night/88 via-night/42 to-transparent" />
@@ -96,36 +103,41 @@ export function VenueStage({ title, hotel, intro, place, roomsLabel, stats }: Ve
           <p className="font-poster text-[clamp(2.4rem,5vw,4rem)]">{roomsLabel}</p>
         </Reveal>
         <div className="mt-8 grid items-end gap-5 lg:grid-cols-12">
-          <Reveal className="lg:col-span-7" delay={40}>
-            <figure className="film-portrait film-frame">
-              <div className="film-frame-core aspect-[4/5] overflow-hidden bg-velvet lg:aspect-[5/6]">
-                <img src="/venue/lobby.jpg" alt="" className="h-full w-full object-cover object-[center_20%]" />
-              </div>
-            </figure>
-          </Reveal>
+          {shots[0] ? (
+            <Reveal className="lg:col-span-7" delay={40}>
+              <figure className="film-portrait film-frame">
+                <div className="film-frame-core aspect-[4/5] overflow-hidden bg-velvet lg:aspect-[5/6]">
+                  <img
+                    src={shots[0].src}
+                    alt={shots[0].caption}
+                    className="h-full w-full object-cover"
+                    style={shots[0].position ? { objectPosition: shots[0].position } : undefined}
+                  />
+                </div>
+                <figcaption className="mt-3 text-sm tracking-[0.16em] text-paper/55 uppercase">
+                  {shots[0].caption}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ) : null}
           <div className="grid gap-5 lg:col-span-5 lg:translate-y-10">
-            <Reveal delay={120}>
-              <figure className="film-portrait film-frame">
-                <div className="film-frame-core aspect-[5/4] overflow-hidden bg-velvet">
-                  <img
-                    src="/examples/stays/one-bed.jpg?v=2"
-                    alt=""
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-              </figure>
-            </Reveal>
-            <Reveal delay={200}>
-              <figure className="film-portrait film-frame">
-                <div className="film-frame-core aspect-[5/4] overflow-hidden bg-velvet">
-                  <img
-                    src="/examples/stays/double.jpg?v=2"
-                    alt=""
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-              </figure>
-            </Reveal>
+            {shots.slice(1, 3).map((shot, index) => (
+              <Reveal key={shot.src} delay={120 + index * 80}>
+                <figure className="film-portrait film-frame">
+                  <div className="film-frame-core aspect-[5/4] overflow-hidden bg-velvet">
+                    <img
+                      src={shot.src}
+                      alt={shot.caption}
+                      className="h-full w-full object-cover"
+                      style={shot.position ? { objectPosition: shot.position } : undefined}
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-sm tracking-[0.16em] text-paper/55 uppercase">
+                    {shot.caption}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </div>
       </Container>

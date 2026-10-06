@@ -24,7 +24,7 @@ export async function ArtistCard({ artist, locale }: ArtistCardProps) {
   return (
     <Link href={{ pathname: '/artistes/[slug]', params: { slug: artist.slug } }} className="film-portrait film-frame group block">
       <div className="film-frame-core relative aspect-[3/4]">
-        <img src={photo} alt={alt} className="h-full w-full object-cover object-top" />
+        <img src={photo} alt={alt} className="h-full w-full object-cover" style={{ objectPosition: 'center 38%' }} />
         <div className="absolute inset-0 bg-gradient-to-t from-night via-transparent to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-4">
           <h3 className="font-poster text-[1.5rem] leading-none text-paper sm:text-[1.8rem]">{artist.name}</h3>

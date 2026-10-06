@@ -7,6 +7,7 @@ export type StayTier = {
 export type StayPackage = {
   id: string
   photo: string
+  photoPosition?: string
   occupancy: number
   days: Array<'friday' | 'saturday' | 'sunday'>
   name: { fr: string; en: string; es: string }
@@ -17,7 +18,8 @@ export type StayPackage = {
 export const stayPackages: StayPackage[] = [
   {
     id: 'two-bed',
-    photo: '/examples/stays/two-bed.jpg?v=2',
+    photo: '/examples/stays/two-bed.jpg?v=3',
+    photoPosition: 'center 68%',
     occupancy: 4,
     days: ['friday', 'saturday', 'sunday'],
     name: {
@@ -40,7 +42,8 @@ export const stayPackages: StayPackage[] = [
   },
   {
     id: 'one-bed',
-    photo: '/examples/stays/one-bed.jpg?v=2',
+    photo: '/examples/stays/one-bed.jpg?v=4',
+    photoPosition: 'center 58%',
     occupancy: 2,
     days: ['friday', 'saturday', 'sunday'],
     name: {
@@ -63,7 +66,8 @@ export const stayPackages: StayPackage[] = [
   },
   {
     id: 'double',
-    photo: '/examples/stays/double.jpg?v=2',
+    photo: '/examples/stays/double.jpg?v=3',
+    photoPosition: 'center 70%',
     occupancy: 2,
     days: ['friday', 'saturday', 'sunday'],
     name: {
@@ -96,17 +100,45 @@ export const earlyBirdMaxSaving = Math.max(
 
 export const featuredArtists = [
   {
+    id: 'aitor-y-angelica',
+    name: 'Aitor y Angelica',
+    slug: 'aitor-y-angelica',
+    role: 'dancer' as const,
+    photo: '/examples/artists/aitor-y-angelica.jpg?v=2',
+  },
+  {
+    id: 'victor-y-alba',
+    name: 'Victor y Alba',
+    slug: 'victor-y-alba',
+    role: 'dancer' as const,
+    photo: '/examples/artists/victor-y-alba.jpg?v=2',
+  },
+  {
+    id: 'daimy-y-valeria',
+    name: 'Daimy y Valeria',
+    slug: 'daimy-y-valeria',
+    role: 'dancer' as const,
+    photo: '/examples/artists/daimy-y-valeria.jpg?v=2',
+  },
+  {
     id: 'kevin-y-lucia',
     name: 'Kevin y Lucia',
     slug: 'kevin-y-lucia',
     role: 'dancer' as const,
-    photo: '/examples/artists/kevin-y-lucia.jpg',
+    photo: '/examples/artists/kevin-y-lucia.jpg?v=2',
   },
   {
     id: 'jordi-judith',
     name: 'Jordi & Judith',
     slug: 'jordi-judith',
     role: 'dancer' as const,
-    photo: '/examples/artists/jordi-judith.jpg',
+    photo: '/examples/artists/jordi-judith.jpg?v=2',
+  },
+  {
+    id: 'york-lisa',
+    name: 'York & Lisa',
+    slug: 'york-lisa',
+    role: 'dancer' as const,
+    photo: '/examples/artists/york-lisa.jpg?v=2',
   },
 ]

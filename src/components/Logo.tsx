@@ -10,7 +10,7 @@ export function Logo({ name, className }: { name: string; className?: string }) 
         alt={name}
         width={920}
         height={280}
-        className="h-11 w-auto brightness-0 invert sm:h-12"
+        className="h-[3.7rem] w-auto brightness-0 invert sm:h-[4.4rem]"
       />
     </Link>
   )

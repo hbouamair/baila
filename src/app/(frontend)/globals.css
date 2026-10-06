@@ -689,6 +689,94 @@ summary::-webkit-details-marker {
   transform: scaleX(0);
 }
 
+.brand-lockup {
+  width: max-content;
+  max-width: 100%;
+  padding-bottom: 2.6rem;
+}
+
+.brand-word {
+  font-family: var(--font-poster);
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -0.018em;
+  line-height: 0.76;
+  text-transform: uppercase;
+  font-size: clamp(3.1rem, 12.4vw, 8.6rem);
+  text-shadow: 0 12px 40px rgb(6 20 12 / 0.72);
+}
+
+.brand-lockup-row {
+  position: relative;
+  margin-top: 0.06em;
+}
+
+.brand-script {
+  position: absolute;
+  right: -0.04em;
+  bottom: -0.46em;
+  margin: 0;
+  color: var(--color-blush);
+  font-size: clamp(1.85rem, 4.4vw, 3.7rem);
+  line-height: 0.9;
+  white-space: nowrap;
+  text-shadow: 0 8px 28px rgb(6 20 12 / 0.7);
+}
+
+.film-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+  text-shadow: 0 10px 32px rgb(6 20 12 / 0.7);
+}
+
+.film-date-pair {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+}
+
+.film-date-day {
+  min-width: 5rem;
+  padding: 0.35rem 0.45rem 0.45rem;
+  border-top: 1.5px solid var(--color-sun);
+  border-bottom: 1.5px solid var(--color-sun);
+  text-align: center;
+}
+
+.film-date-num {
+  display: block;
+  font-family: var(--font-poster);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.82;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 6.4vw, 4.8rem);
+}
+
+.film-date-join {
+  color: var(--color-blush);
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1;
+}
+
+.film-date-month {
+  font-family: var(--font-poster);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-sun);
+  font-size: clamp(0.82rem, 1.6vw, 1.05rem);
+}
+
+.film-date-where {
+  color: rgb(246 241 223 / 0.78);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+
 .film-ticket {
   display: flex;
   min-height: 4.5rem;

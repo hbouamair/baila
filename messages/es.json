@@ -76,7 +76,8 @@
     "stayTitle": "La estancia",
     "stayIntro": "El pase es una habitación en el Palm Plaza Marrakech. Tres noches, viernes a domingo.",
     "stayFrom": "Desde",
-    "stayCta": "Ver las fórmulas"
+    "stayCta": "Ver las fórmulas",
+    "dateJoin": "al"
   },
   "Film": {
     "cityLine": "Donde Marrakech encuentra la bachata.",
@@ -138,7 +139,7 @@
   },
   "Artists": {
     "title": "Conoce a nuestros artistas",
-    "intro": "Los bailarines, DJs y partners que dan vida a Bailamos Marrakech.",
+    "intro": "Aitor y Angelica, Victor y Alba, Daimy y Valeria, Kevin y Lucia, Jordi & Judith, York & Lisa.",
     "sectionArtists": "Artistas",
     "sectionArtistsIntro": "El line-up de bachata del fin de semana.",
     "sectionDjs": "DJs",
@@ -180,6 +181,9 @@
     "hotel": "Palm Plaza Marrakech",
     "hotelPlace": "Hivernage, Marrakech",
     "rooms": "Las habitaciones",
+    "shotRoom": "Habitación del apartamento",
+    "shotHotelRoom": "Habitación de hotel",
+    "shotTerrace": "La terraza",
     "access": "Acceso",
     "accommodation": "Alojamiento",
     "empty": "La información práctica se publicará pronto.",

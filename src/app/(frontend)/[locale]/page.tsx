@@ -37,28 +37,30 @@ export default async function HomePage({ params }: PageProps) {
     locale,
   )
 
-  const extras = featuredArtists.filter((featured) => !artists.some((artist) => artist.slug === featured.slug))
-  const lineup = [
-    ...extras.map((artist) => ({
-      id: artist.id,
-      name: artist.name,
-      slug: artist.slug,
-      roleLabel: roles('role_dancer'),
-      country: null,
-      photo: artist.photo,
-    })),
-    ...artists.map((artist) => ({
+  const extras = featuredArtists.map((artist) => ({
+    id: artist.id,
+    name: artist.name,
+    slug: artist.slug,
+    roleLabel: roles('role_dancer'),
+    country: null,
+    photo: artist.photo,
+  }))
+  const rest = artists
+    .filter((artist) => !featuredArtists.some((featured) => featured.slug === artist.slug))
+    .map((artist) => ({
       id: artist.id,
       name: artist.name,
       slug: artist.slug,
       roleLabel: roles(`role_${artist.role}` as 'role_dancer'),
       country: artist.country,
       photo: resolveArtistPhoto(artist),
-    })),
-  ]
+    }))
+  const lineup = [...extras, ...rest]
 
   const featuredStay = stayPackages[0]
   const early = featuredStay.tiers[0]
+  const start = new Date('2027-05-20T12:00:00.000Z')
+  const end = new Date('2027-05-24T12:00:00.000Z')
   const festivalDays = ['2027-05-20', '2027-05-21', '2027-05-22', '2027-05-23'].map((date) => {
     const parsed = new Date(`${date}T00:00:00.000Z`)
     return {
@@ -72,15 +74,18 @@ export default async function HomePage({ params }: PageProps) {
       <CinematicFilm
         when={when}
         where="Palm Plaza Marrakech"
+        date={{
+          start: format.dateTime(start, { day: 'numeric', timeZone: 'UTC' }),
+          join: home('dateJoin'),
+          end: format.dateTime(end, { day: 'numeric', timeZone: 'UTC' }),
+          month: format.dateTime(start, { month: 'long', timeZone: 'UTC' }),
+          year: format.dateTime(start, { year: 'numeric', timeZone: 'UTC' }),
+        }}
         artists={lineup}
         copy={{
           artists: film('artists'),
           international: film('international'),
           getPass: film('getPass'),
-          zoom1: film('zoom1'),
-          zoom1Sub: film('zoom1Sub'),
-          zoom2: film('zoom2'),
-          zoom2Sub: film('zoom2Sub'),
         }}
       />
       <AfterFilm
@@ -94,7 +99,7 @@ export default async function HomePage({ params }: PageProps) {
         stayPrice={formatPrice(early.price, 'EUR', locale)}
         stayNote={stay('perPerson')}
         stayCta={home('stayCta')}
-        stayPhoto={featuredStay.photo}
+        stayPhoto="/cinematic/hero.jpg?v=7"
       />
     </>
   )

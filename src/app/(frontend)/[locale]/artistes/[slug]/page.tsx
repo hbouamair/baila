@@ -37,7 +37,7 @@ export default async function ArtistDetailPage({ params }: PageProps) {
   const t = await getTranslations({ locale, namespace: 'Artists' })
   const name = cmsArtist?.name || featured?.name || slug
   const role = cmsArtist?.role || featured?.role || 'dancer'
-  const photo = cmsArtist ? resolveArtistPhoto(cmsArtist) : featured?.photo || ''
+  const photo = featured?.photo || (cmsArtist ? resolveArtistPhoto(cmsArtist) : '')
   const country = cmsArtist?.country
 
   return (
@@ -48,7 +48,8 @@ export default async function ArtistDetailPage({ params }: PageProps) {
             <img
               src={photo}
               alt={cmsArtist ? getMediaAlt(cmsArtist.photo) || name : name}
-              className="h-full w-full object-cover object-top"
+              className="h-full w-full object-cover"
+              style={{ objectPosition: 'center 38%' }}
             />
           </div>
         </div>

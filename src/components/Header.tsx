@@ -71,12 +71,12 @@ export function Header({ festivalName }: HeaderProps) {
 
   return (
     <header className={cn('pointer-events-none fixed inset-x-0 top-0 z-40', scrolled && 'is-scrolled')}>
-      <div className="nav-glass pointer-events-none absolute inset-x-0 top-0 h-[4.25rem]" />
+      <div className="nav-glass pointer-events-none absolute inset-x-0 top-0 h-[5.6rem]" />
 
-      <div className="pointer-events-auto relative z-50 mx-auto flex h-[4.25rem] max-w-[96rem] items-center justify-between gap-6 px-5 lg:px-10">
+      <div className="pointer-events-auto relative z-50 mx-auto flex h-[5.6rem] max-w-[96rem] items-center justify-between gap-6 px-5 lg:px-10">
         <Logo name={festivalName} />
 
-        <nav className="hidden items-center gap-6 xl:gap-8 xl:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 xl:gap-10 xl:flex" aria-label="Primary">
           {navItems.map((item) => {
             const active = isActive(pathname, item.href)
             return (
@@ -84,7 +84,7 @@ export function Header({ festivalName }: HeaderProps) {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'text-[0.82rem] font-medium tracking-[0.04em] whitespace-nowrap transition-colors duration-300',
+                  'text-[1.15rem] font-medium tracking-[0.055em] whitespace-nowrap transition-colors duration-300',
                   active ? 'text-sun' : 'text-paper/78 hover:text-paper',
                 )}
               >

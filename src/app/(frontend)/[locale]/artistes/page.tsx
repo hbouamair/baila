@@ -32,23 +32,23 @@ export default async function ArtistsPage({ params }: PageProps) {
     getArtists(locale),
     getTranslations({ locale, namespace: 'Artists' }),
   ])
-  const extras = featuredArtists
-    .filter((featured) => !artists.some((artist) => artist.slug === featured.slug))
-    .map((featured) => ({
-      id: featured.id,
-      name: featured.name,
-      slug: featured.slug,
-      role: featured.role,
-      photo: featured.photo,
-    }))
-  const { dancers, djs } = groupArtists([...extras, ...artists])
+  const extras = featuredArtists.map((featured) => ({
+    id: featured.id,
+    name: featured.name,
+    slug: featured.slug,
+    role: featured.role,
+    photo: featured.photo,
+  }))
+  const rest = artists.filter((artist) => !featuredArtists.some((featured) => featured.slug === artist.slug))
+  const lineup = [...extras, ...rest]
+  const { dancers, djs } = groupArtists(lineup)
 
   return (
     <>
       <PageHero title={t('title')} intro={t('intro')} />
       <Section>
         <Container>
-          {artists.length ? (
+          {lineup.length ? (
             <div className="space-y-16">
               {dancers.length ? (
                 <div>

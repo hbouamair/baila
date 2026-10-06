@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation'
 import type { AppLocale } from '@/i18n/routing'
 import { Container } from '@/components/ui/Container'
 import { FooterNewsletter } from '@/components/FooterNewsletter'
+import { Logo } from '@/components/Logo'
 import { HOTEL_NAME, withHotelName } from '@/lib/hotel'
 import { getLegalPages } from '@/lib/payload'
 
@@ -26,6 +27,7 @@ export async function Footer({ locale, festivalName, footerNote, socials, contac
       <Container className="relative py-20 sm:py-24">
         <div className="grid gap-12 lg:grid-cols-3">
           <div>
+            <Logo name={festivalName} className="mb-6" />
             <h2 className="font-poster text-[1.9rem] text-paper">{t('about')}</h2>
             <p className="mt-3 max-w-sm text-[0.95rem] text-paper/65">
               {footerNote ? withHotelName(footerNote) : HOTEL_NAME}

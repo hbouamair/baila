@@ -18,6 +18,7 @@ type AfterFilmProps = {
   stayNote: string
   stayCta: string
   stayPhoto: string
+  stayPhotoPosition?: string
 }
 
 export function AfterFilm({
@@ -32,6 +33,7 @@ export function AfterFilm({
   stayNote,
   stayCta,
   stayPhoto,
+  stayPhotoPosition,
 }: AfterFilmProps) {
   return (
     <div className="bg-night text-paper">
@@ -61,12 +63,16 @@ export function AfterFilm({
         </ol>
       </section>
 
-      <section className="grid lg:grid-cols-12">
-        <div className="relative min-h-[70vh] lg:col-span-7">
-          <img src={stayPhoto} alt="" className="absolute inset-0 h-full w-full object-cover object-center" />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-night/50" />
-        </div>
-        <div className="flex flex-col justify-center px-5 py-16 sm:px-10 lg:col-span-5 lg:px-12 lg:py-24">
+      <section className="relative min-h-[72vh] overflow-hidden lg:min-h-[86vh]">
+        <img
+          src={stayPhoto}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          style={stayPhotoPosition ? { objectPosition: stayPhotoPosition } : undefined}
+        />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-night via-night/55 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-night via-night/30 to-transparent" />
+        <div className="relative z-10 flex min-h-[72vh] flex-col justify-end px-5 py-16 sm:px-10 lg:min-h-[86vh] lg:px-16 lg:py-24">
           <Reveal>
             <h2 className="font-poster text-[clamp(3rem,7vw,5.5rem)] leading-[0.84]">{stayTitle}</h2>
             <p className="mt-5 max-w-[28rem] text-lg text-pretty text-paper/74">{stayIntro}</p>

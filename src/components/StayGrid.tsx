@@ -25,7 +25,12 @@ export async function StayGrid({ locale, platform, href }: StayGridProps) {
             <article data-testid="pass-card" className="film-frame flex h-full flex-col">
               <div className="film-frame-core flex h-full flex-col bg-velvet">
                 <div className="relative aspect-[5/3] overflow-hidden">
-                  <img src={stay.photo} alt="" className="h-full w-full object-cover object-center" />
+                  <img
+                    src={stay.photo}
+                    alt={stay.name[locale]}
+                    className="h-full w-full object-cover"
+                    style={stay.photoPosition ? { objectPosition: stay.photoPosition } : undefined}
+                  />
                 </div>
                 <div className="flex flex-1 flex-col gap-5 px-6 py-6">
                   <div>

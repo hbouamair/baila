@@ -43,6 +43,11 @@ export default async function PracticalInfoPage({ params }: PageProps) {
         place={t('hotelPlace')}
         roomsLabel={t('rooms')}
         stats={stats}
+        shots={[
+          { src: '/venue/room.jpg?v=1', caption: t('shotRoom'), position: 'center 58%' },
+          { src: '/venue/hotel-room.jpg?v=1', caption: t('shotHotelRoom'), position: 'center 55%' },
+          { src: '/venue/terrace.jpg?v=1', caption: t('shotTerrace'), position: 'center 40%' },
+        ]}
       />
       <Section>
         <Container className="grid items-start gap-12 lg:grid-cols-12">
