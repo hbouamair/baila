@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { RichText } from '@payloadcms/richtext-lexical/react'
+import { CmsText } from '@/components/CmsText'
 
 import { PageHero } from '@/components/PageHero'
 import { Container } from '@/components/ui/Container'
@@ -41,7 +41,7 @@ export default async function LegalPage({ params }: PageProps) {
         <Container className="max-w-3xl text-paper/80">
           {page.content ? (
             <div className="measure [&_p]:mb-3">
-              <RichText data={page.content} />
+              <CmsText data={page.content} />
             </div>
           ) : (
             <p className="text-ink-muted">{t('empty')}</p>

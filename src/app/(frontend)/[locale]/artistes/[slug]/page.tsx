@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { RichText } from '@payloadcms/richtext-lexical/react'
+import { CmsText } from '@/components/CmsText'
 
 import { Container } from '@/components/ui/Container'
 import { Link } from '@/i18n/navigation'
@@ -67,7 +67,7 @@ export default async function ArtistDetailPage({ params }: PageProps) {
       <Container className="mt-14 max-w-3xl">
         {cmsArtist?.bio ? (
           <div className="measure text-paper/80 [&_p]:mb-3">
-            <RichText data={cmsArtist.bio} />
+            <CmsText data={cmsArtist.bio} />
           </div>
         ) : null}
         {cmsArtist?.socials?.length ? (

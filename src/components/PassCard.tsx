@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server'
-import { RichText } from '@payloadcms/richtext-lexical/react'
+import { CmsText } from '@/components/CmsText'
 
 import { Badge } from '@/components/ui/Badge'
 import { Card } from '@/components/ui/Card'
@@ -83,7 +83,7 @@ export async function PassCard({ pass, locale, platform, fallbackUrl, featured =
             <div>
               <p className="text-sm text-ink-muted">{t('restrictions')}</p>
               <div className="mt-2 text-sm text-ink-muted [&_p]:mb-2">
-                <RichText data={pass.restrictions} />
+                <CmsText data={pass.restrictions} />
               </div>
             </div>
           ) : null}

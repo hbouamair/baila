@@ -1,5 +1,5 @@
 import type { AppLocale } from '@/i18n/routing'
-import type { PracticalInfo, SiteSetting } from '@/payload-types'
+import type { Artist, Faq, Page, Pass, PracticalInfo, Programme, SiteSetting } from '@/payload-types'
 
 const siteSettings: SiteSetting = {
   id: 0,
@@ -36,30 +36,30 @@ export async function getPracticalInfo(_locale: AppLocale) {
   return practicalInfo
 }
 
-export async function getPasses(_locale: AppLocale) {
+export async function getPasses(_locale: AppLocale): Promise<Pass[]> {
   return []
 }
 
-export async function getArtists(_locale: AppLocale, _featuredOnly = false) {
+export async function getArtists(_locale: AppLocale, _featuredOnly = false): Promise<Artist[]> {
   return []
 }
 
-export async function getArtistBySlug(_slug: string, _locale: AppLocale) {
+export async function getArtistBySlug(_slug: string, _locale: AppLocale): Promise<Artist | null> {
   return null
 }
 
-export async function getProgramme(_locale: AppLocale) {
+export async function getProgramme(_locale: AppLocale): Promise<Programme[]> {
   return []
 }
 
-export async function getFaqs(_locale: AppLocale) {
+export async function getFaqs(_locale: AppLocale): Promise<Faq[]> {
   return []
 }
 
-export async function getLegalPages(_locale: AppLocale) {
+export async function getLegalPages(_locale: AppLocale): Promise<Page[]> {
   return []
 }
 
-export async function getPageBySlug(_slug: string, _locale: AppLocale) {
+export async function getPageBySlug(_slug: string, _locale: AppLocale): Promise<Page | null> {
   return null
 }

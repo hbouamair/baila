@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { RichText } from '@payloadcms/richtext-lexical/react'
+import { CmsText } from '@/components/CmsText'
 
 import { Reveal } from '@/components/Reveal'
 import { VenueStage } from '@/components/venue/VenueStage'
@@ -98,7 +98,7 @@ export default async function PracticalInfoPage({ params }: PageProps) {
                 <Reveal className="mt-12" delay={80}>
                   <h2 className="font-poster text-[clamp(2rem,4vw,3.2rem)] text-paper">{t('access')}</h2>
                   <div className="mt-4 max-w-xl text-paper/75 [&_p]:mb-2">
-                    <RichText data={withHotelNameDeep(info.access)} />
+                    <CmsText data={withHotelNameDeep(info.access)} />
                   </div>
                 </Reveal>
               ) : null}
@@ -107,7 +107,7 @@ export default async function PracticalInfoPage({ params }: PageProps) {
                 <Reveal className="mt-12" delay={120}>
                   <h2 className="font-poster text-[clamp(2rem,4vw,3.2rem)] text-paper">{t('accommodation')}</h2>
                   <div className="mt-4 max-w-xl text-paper/75 [&_p]:mb-2">
-                    <RichText data={withHotelNameDeep(info.accommodation)} />
+                    <CmsText data={withHotelNameDeep(info.accommodation)} />
                   </div>
                 </Reveal>
               ) : null}

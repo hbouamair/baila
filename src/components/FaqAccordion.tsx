@@ -1,6 +1,6 @@
 'use client'
 
-import { RichText } from '@payloadcms/richtext-lexical/react'
+import { CmsText } from '@/components/CmsText'
 
 import type { Faq } from '@/payload-types'
 
@@ -18,7 +18,7 @@ export function FaqAccordion({ items }: { items: Faq[] }) {
             </span>
           </summary>
           <div className="mt-3 max-w-[40rem] text-pretty text-paper/72 [&_p]:mb-2">
-            <RichText data={item.answer} />
+            <CmsText data={item.answer} />
           </div>
         </details>
       ))}
