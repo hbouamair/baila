@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 
+import { BookStayLink } from '@/components/BookStayLink'
 import { Link } from '@/i18n/navigation'
 
 const HERO = '/cinematic/nights.jpg?v=2'
@@ -84,10 +85,10 @@ function DatePlate({ date, where }: { date: FilmDate; where: string }) {
 
 function StayCta({ label }: { label: string }) {
   return (
-    <Link href="/pass" className="film-cta">
+    <BookStayLink>
       {label}
       <span className="film-cta-mark" aria-hidden />
-    </Link>
+    </BookStayLink>
   )
 }
 

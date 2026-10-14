@@ -1,3 +1,4 @@
+import { BookStayLink } from '@/components/BookStayLink'
 import { Reveal } from '@/components/Reveal'
 import { Link } from '@/i18n/navigation'
 
@@ -51,7 +52,7 @@ export function AfterFilm({
           </div>
         </Reveal>
 
-        <ol className="mt-14 grid gap-0 border-t border-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-14 grid gap-0 border-t border-white/10 sm:grid-cols-2 lg:grid-cols-5">
           {days.map((day, index) => (
             <Reveal key={day.weekday} delay={index * 70}>
               <li className="border-white/10 py-8 sm:pr-6 lg:border-r lg:pr-8 lg:last:border-r-0">
@@ -79,10 +80,10 @@ export function AfterFilm({
             <p className="mt-10 text-sm text-blush">{stayFrom}</p>
             <p className="font-poster mt-2 text-[clamp(3rem,6vw,4.6rem)] leading-none text-sun">{stayPrice}</p>
             <p className="mt-3 text-sm text-paper/64">{stayNote}</p>
-            <Link href="/pass" className="film-cta mt-8 w-fit">
+            <BookStayLink className="mt-8 w-fit">
               {stayCta}
               <span className="film-cta-mark" aria-hidden />
-            </Link>
+            </BookStayLink>
           </Reveal>
         </div>
       </section>

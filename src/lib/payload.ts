@@ -8,7 +8,7 @@ const siteSettings: SiteSetting = {
   startDate: '2027-05-20',
   endDate: '2027-05-24',
   ticketingPlatformName: 'Go&Dance',
-  ticketingUrl: 'https://example.com/billetterie',
+  ticketingUrl: 'https://www.goandance.com/en/event/ec2743e1-ac87-4ac7-8537-cdca048fbe97',
   contactEmail: null,
   plausibleDomain: null,
   socials: [],

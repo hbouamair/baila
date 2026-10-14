@@ -137,7 +137,7 @@ export function FestivalHero({
             </div>
 
             <Link
-              href="/pass"
+              href={{ pathname: '/pass', hash: 'tickets' }}
               data-testid="discover-passes"
               className="ticket-stub btn-pop hero-in group mt-8 inline-flex min-h-12 items-center gap-3 bg-gold py-2 pr-2 pl-6 text-sm font-semibold text-gold-fg shadow-glow"
               style={{ animationDelay: '400ms' }}

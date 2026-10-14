@@ -1,4 +1,7 @@
 export const HOTEL_NAME = 'Palm Plaza Marrakech'
+export const HOTEL_ADDRESS = 'Av. du 7ème Art, Marrakech 40000, Morocco'
+export const HOTEL_MAPS_URL = 'https://maps.google.com/?q=Palm+Plaza+Hotel+%26+Spa+Marrakech'
+export const VISA_CHECKER_URL = 'https://www.acces-maroc.ma/#/'
 
 export function withHotelName(text: string): string {
   return text

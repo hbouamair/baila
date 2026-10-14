@@ -70,8 +70,8 @@
     "hours": "Heures",
     "minutes": "Min",
     "seconds": "Sec",
-    "daysTitle": "Quatre jours",
-    "daysIntro": "Workshops le jour, socials la nuit. Du 20 au 24 mai 2027 au Palm Plaza Marrakech.",
+    "daysTitle": "Cinq jours",
+    "daysIntro": "Workshops, pool parties et nuits de danse, du jeudi 20 au lundi 24 mai 2027 au Palm Plaza Marrakech.",
     "seeProgramme": "Voir le programme",
     "stayTitle": "Le séjour",
     "stayIntro": "Le pass est une chambre au Palm Plaza Marrakech. Trois nuits, vendredi à dimanche.",
@@ -125,7 +125,14 @@
     "inclusions": "Prestations incluses",
     "restrictions": "Conditions et restrictions",
     "buyOn": "Acheter sur {platform}",
-    "redirectNotice": "Vous serez redirigé vers notre plateforme de billetterie pour finaliser votre achat.",
+    "redirectNotice": "Choisissez votre séjour, puis finalisez la réservation dans le formulaire Go&Dance sur cette page.",
+    "ticketsLead": "Go&Dance",
+    "ticketsTitle": "Tickets",
+    "ticketsIntro": "Full pass et VIP Full Pass sont liés aux formules d’hébergement. Choisissez votre chambre, puis réservez dans le formulaire.",
+    "fullPassTitle": "Full pass",
+    "fullPassBody": "L’accès festival : workshops, pool parties et socials, de la welcome party à la closing party.",
+    "vipPassTitle": "VIP Full Pass",
+    "vipPassBody": "Le VIP Full Pass est inclus dans les formules officielles sur Go&Dance. Choisissez l’appartement ou la chambre, puis validez le formulaire.",
     "soldOut": "Complet",
     "available": "Disponible",
     "empty": "Les pass seront bientôt publiés.",
@@ -164,14 +171,14 @@
     "cardKicker_teacher": "Prof"
   },
   "Programme": {
-    "titleLead": "Jeudi au dimanche",
+    "titleLead": "Jeudi au lundi",
     "title": "Programme",
-    "intro": "Workshops, soirées et shows, du jeudi au dimanche.",
+    "intro": "Programme provisoire, du jeudi 20 au lundi 24 mai 2027.",
     "seeDays": "Voir le calendrier",
     "prevDay": "Jour précédent",
     "nextDay": "Jour suivant",
     "nav": "Calendrier du programme",
-    "calendarHint": "Les jours en or sont les quatre jours du festival.",
+    "calendarHint": "Les jours en or sont les jours du festival.",
     "moments": "{count, plural, one {# moment} other {# moments}}",
     "filterAll": "Tout",
     "emptyFilter": "Rien sur ce filtre pour ce jour.",
@@ -197,7 +204,7 @@
     "hotelPlace": "Marrakech",
     "storyLead": "Sous un même toit",
     "storyTitle": "Le festival habite l'hôtel",
-    "storyBody": "Bailaimos se tient au Palm Plaza Marrakech, dans le quartier Hivernage. Workshops le jour, socials la nuit, piscine et terrasses entre les deux. Vous dormez là où vous dansez, à quinze minutes de l'aéroport Marrakech Menara.",
+    "storyBody": "Bailaimos se tient au Palm Plaza Marrakech, avenue du 7ème Art, à l’Agdal. Workshops le jour, socials la nuit, piscine et terrasses entre les deux. Vous dormez là où vous dansez, à environ quinze minutes de l’aéroport Marrakech Menara.",
     "groundsTitle": "Les espaces",
     "shotPool": "La piscine",
     "shotGarden": "Les jardins",
@@ -225,7 +232,26 @@
     "statWeatherValue": "28°C",
     "statWeather": "En mai",
     "statDaysValue": "3 jours",
-    "statDays": "De festival"
+    "statDays": "De festival",
+    "travelLead": "Venir à Marrakech",
+    "travelTitle": "Le chemin jusqu’à l’hôtel",
+    "travelIntro": "L’arrivée la plus simple : un vol direct à Marrakech Menara (RAK), puis un taxi jusqu’au Palm Plaza Marrakech.",
+    "addressTitle": "L’hôtel",
+    "mapsCta": "Ouvrir la carte",
+    "flyTitle": "Voler sur RAK",
+    "flyBody": "Atterrissez à l’aéroport Marrakech Menara (RAK) pour l’arrivée la plus simple.",
+    "trainTitle": "Casablanca et Rabat",
+    "trainBody": "Si vous atterrissez à Casablanca (CMN) ou Rabat (RBA), continuez jusqu’à Marrakech en train.",
+    "busTitle": "Agadir",
+    "busBody": "Depuis Agadir (AGA), continuez par la route ou le bus. Il n’y a actuellement pas de train vers Marrakech.",
+    "taxiTitle": "Transfert hôtel",
+    "taxiFare": "Environ 14 €",
+    "taxiMad": "Environ 142 MAD",
+    "taxiPax": "Jusqu’à 6 passagers",
+    "taxiBody": "Tarif indicatif en taxi depuis l’aéroport Marrakech Menara (RAK) jusqu’au Palm Plaza Marrakech. Aux comptoirs taxis, à la sortie de l’aéroport. Durée d’environ 15 minutes selon le trafic. Le festival ne propose pas de navette privée.",
+    "visaTitle": "Faut-il un visa ?",
+    "visaBody": "Les formalités d’entrée dépendent de votre nationalité. Utilisez l’outil officiel marocain : nationalité, pays de résidence, type de passeport, motif du voyage, et un autre visa le cas échéant.",
+    "visaCta": "Vérifier sur acces-maroc.ma"
   },
   "Faq": {
     "titleLead": "Avant de partir",
@@ -249,7 +275,7 @@
           },
           {
             "q": "Où ça se passe ?",
-            "a": "À Palm Plaza Marrakech, dans le quartier de l’Hivernage. Vous dormez là où vous dansez, à environ 15 minutes de l’aéroport Marrakech Menara."
+            "a": "À Palm Plaza Marrakech, Av. du 7ème Art, Marrakech 40000. Vous dormez là où vous dansez, à environ 15 minutes de l’aéroport Marrakech Menara."
           },
           {
             "q": "Faut-il un niveau ?",
@@ -289,11 +315,29 @@
         "items": [
           {
             "q": "Que se passe-t-il pendant les jours ?",
-            "a": "Workshops, soirées et shows du jeudi au dimanche. Le calendrier est sur la page Programme."
+            "a": "Workshops, pool parties et soirées du jeudi 20 au lundi 24 mai 2027. Le calendrier est sur la page Programme."
           },
           {
             "q": "Comment devenir ambassadeur ?",
             "a": "Ouvrez la page Ambassadeurs et déposez votre candidature. Les meilleurs promoteurs reçoivent un pass, un séjour à Palm Plaza Marrakech et une commission."
+          }
+        ]
+      },
+      {
+        "id": "travel",
+        "label": "Venir à Marrakech",
+        "items": [
+          {
+            "q": "Comment aller de l’aéroport à l’hôtel ?",
+            "a": "L’arrivée la plus simple est Marrakech Menara (RAK). Un taxi depuis les comptoirs de l’aéroport jusqu’au Palm Plaza Marrakech coûte environ 14 € (environ 142 MAD), jusqu’à 6 passagers, autour de 15 minutes."
+          },
+          {
+            "q": "Et si j’atterris à Casablanca, Rabat ou Agadir ?",
+            "a": "Depuis Casablanca ou Rabat, continuez jusqu’à Marrakech en train. Depuis Agadir, continuez par la route ou le bus. Il n’y a actuellement pas de train Agadir–Marrakech."
+          },
+          {
+            "q": "Faut-il un visa pour le Maroc ?",
+            "a": "Cela dépend de votre nationalité. Vérifiez sur l’outil officiel acces-maroc.ma."
           }
         ]
       }

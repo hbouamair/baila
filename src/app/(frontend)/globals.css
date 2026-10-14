@@ -1163,8 +1163,9 @@ summary::-webkit-details-marker {
 
 .cal-week {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(3.6rem, 1fr));
   gap: 0.45rem;
+  overflow-x: auto;
 }
 
 .cal-week-day {
@@ -1857,4 +1858,16 @@ summary::-webkit-details-marker {
   .faq-item p {
     padding-left: calc(1.55rem + 1.15rem);
   }
+}
+
+.goandance-tickets {
+  width: 100%;
+}
+
+.goandance-tickets iframe {
+  display: block;
+  width: 100% !important;
+  min-height: 42rem;
+  border: 0;
+  background: #fff;
 }

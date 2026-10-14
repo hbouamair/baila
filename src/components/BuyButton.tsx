@@ -31,15 +31,17 @@ export function BuyButton({ href, platform, passSlug, disabled, className }: Buy
     )
   }
 
+  const onPage = href.startsWith('#')
+
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={onPage ? undefined : '_blank'}
+      rel={onPage ? undefined : 'noopener noreferrer'}
       data-testid="buy-button"
       data-pass={passSlug}
       data-platform={platform}
-        className={cn('film-cta w-full justify-between', className)}
+      className={cn('film-cta w-full justify-between', className)}
       onClick={() => {
         trackOutboundTicketClick({ pass: passSlug, platform, locale })
       }}

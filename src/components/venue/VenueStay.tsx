@@ -1,5 +1,5 @@
+import { BookStayLink } from '@/components/BookStayLink'
 import { Reveal } from '@/components/Reveal'
-import { Link } from '@/i18n/navigation'
 import type { AppLocale } from '@/i18n/routing'
 import { stayPackages } from '@/lib/stays'
 import { cn } from '@/lib/utils'
@@ -129,10 +129,10 @@ export function VenueStay({
                   <p className="mt-4 text-sm tracking-[0.14em] text-sun uppercase">{occupancy(stay.occupancy)}</p>
                   <p className="mt-2 text-sm text-paper/55">{nights}</p>
                   <p className="mt-6 max-w-[28rem] text-lg text-pretty text-paper/78">{copy.body}</p>
-                  <Link href="/pass" className="film-cta mt-8">
+                  <BookStayLink className="mt-8">
                     {seePasses}
                     <span className="film-cta-mark" aria-hidden />
-                  </Link>
+                  </BookStayLink>
                 </Reveal>
               </article>
             )

@@ -63,7 +63,7 @@ export default async function HomePage({ params }: PageProps) {
   const early = featuredStay.tiers[0]
   const start = new Date('2027-05-20T12:00:00.000Z')
   const end = new Date('2027-05-24T12:00:00.000Z')
-  const festivalDays = ['2027-05-20', '2027-05-21', '2027-05-22', '2027-05-23'].map((date) => {
+  const festivalDays = ['2027-05-20', '2027-05-21', '2027-05-22', '2027-05-23', '2027-05-24'].map((date) => {
     const parsed = new Date(`${date}T00:00:00.000Z`)
     return {
       weekday: format.dateTime(parsed, { weekday: 'long', timeZone: 'UTC' }),

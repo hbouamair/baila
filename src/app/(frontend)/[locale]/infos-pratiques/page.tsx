@@ -1,10 +1,11 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { CmsText } from '@/components/CmsText'
 
+import { BookStayLink } from '@/components/BookStayLink'
 import { Reveal } from '@/components/Reveal'
+import { TravelGuide } from '@/components/venue/TravelGuide'
 import { VenueStage } from '@/components/venue/VenueStage'
 import { VenueStay } from '@/components/venue/VenueStay'
-import { Link } from '@/i18n/navigation'
 import type { AppLocale } from '@/i18n/routing'
 import { withHotelName, withHotelNameDeep } from '@/lib/hotel'
 import { getPracticalInfo } from '@/lib/payload'
@@ -80,6 +81,30 @@ export default async function PracticalInfoPage({ params }: PageProps) {
         ]}
       />
 
+      <TravelGuide
+        copy={{
+          lead: t('travelLead'),
+          title: t('travelTitle'),
+          intro: t('travelIntro'),
+          addressTitle: t('addressTitle'),
+          mapsCta: t('mapsCta'),
+          flyTitle: t('flyTitle'),
+          flyBody: t('flyBody'),
+          trainTitle: t('trainTitle'),
+          trainBody: t('trainBody'),
+          busTitle: t('busTitle'),
+          busBody: t('busBody'),
+          taxiTitle: t('taxiTitle'),
+          taxiFare: t('taxiFare'),
+          taxiMad: t('taxiMad'),
+          taxiPax: t('taxiPax'),
+          taxiBody: t('taxiBody'),
+          visaTitle: t('visaTitle'),
+          visaBody: t('visaBody'),
+          visaCta: t('visaCta'),
+        }}
+      />
+
       {hasContent ? (
         <section className="border-t border-white/10 px-5 py-[var(--space-section)] sm:px-10 lg:px-16">
           <div className="grid items-start gap-12 lg:grid-cols-12">
@@ -130,10 +155,10 @@ export default async function PracticalInfoPage({ params }: PageProps) {
             <p className="font-poster text-[clamp(2.2rem,5vw,3.8rem)] leading-[0.9]">{t('ctaTitle')}</p>
             <p className="mt-4 max-w-[28rem] text-paper/70">{t('ctaBody')}</p>
           </div>
-          <Link href="/pass" className="film-cta shrink-0">
+          <BookStayLink className="shrink-0">
             {nav('discoverPasses')}
             <span className="film-cta-mark" aria-hidden />
-          </Link>
+          </BookStayLink>
         </div>
       </section>
     </VenueStage>

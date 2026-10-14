@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 import { ArtistCard, type ArtistCardArtist } from '@/components/ArtistCard'
 import { Reveal } from '@/components/Reveal'
 import type { AppLocale } from '@/i18n/routing'
-import { resolveArtistPhoto } from '@/lib/utils'
 
 type ArtistsStageProps = {
   locale: AppLocale
@@ -47,26 +46,19 @@ export async function ArtistsStage({
   djs,
 }: ArtistsStageProps) {
   const lineup = [...dancers, ...djs]
-  const wall = dancers.length ? dancers : lineup
 
   return (
     <div className="bg-night text-paper">
       <section className="relative min-h-[100dvh] overflow-hidden">
-        <div className="absolute inset-0 grid grid-cols-4 lg:grid-cols-6">
-          {wall.map((artist) => (
-            <img
-              key={artist.id}
-              src={resolveArtistPhoto(artist)}
-              alt=""
-              className="h-full w-full object-cover"
-              style={{ objectPosition: 'center 42%' }}
-            />
-          ))}
-        </div>
-        <div className="pointer-events-none absolute inset-0 bg-night/45" />
+        <img
+          src="/artists/lineup-hero.jpg?v=1"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-[center_28%]"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-night/28" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-night/80 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-night/90 via-night/55 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-night via-night/75 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-[72%] bg-gradient-to-r from-night/82 via-night/38 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] bg-gradient-to-t from-night via-night/50 to-transparent" />
 
         <div className="relative z-10 flex min-h-[100dvh] flex-col justify-end px-5 pb-10 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16">
           <div className="venue-copy">

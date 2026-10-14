@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { useEffect, useState, type CSSProperties } from 'react'
 
+import { BookStayLink } from '@/components/BookStayLink'
 import { Link, usePathname } from '@/i18n/navigation'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { Logo } from '@/components/Logo'
@@ -96,10 +97,10 @@ export function Header({ festivalName }: HeaderProps) {
 
         <div className="hidden items-center gap-5 xl:flex">
           <LocaleSwitcher />
-          <Link href="/pass" data-testid="discover-passes" className="film-cta">
+          <BookStayLink testId="discover-passes">
             {t('discoverPasses')}
             <span className="film-cta-mark" aria-hidden />
-          </Link>
+          </BookStayLink>
         </div>
 
         <button
@@ -134,15 +135,10 @@ export function Header({ festivalName }: HeaderProps) {
             })}
           </nav>
           <div className="mt-10 flex flex-col gap-5">
-            <Link
-              href="/pass"
-              data-testid="discover-passes-mobile"
-              className="film-cta w-fit"
-              onClick={() => setOpen(false)}
-            >
+            <BookStayLink testId="discover-passes-mobile" className="w-fit" onClick={() => setOpen(false)}>
               {t('discoverPasses')}
               <span className="film-cta-mark" aria-hidden />
-            </Link>
+            </BookStayLink>
             <LocaleSwitcher />
           </div>
         </div>
