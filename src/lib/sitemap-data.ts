@@ -70,26 +70,3 @@ export function getSitemapEntries(): SitemapEntry[] {
 
   return [...pages, ...artists]
 }
-
-export function renderSitemapXml(entries: SitemapEntry[]) {
-  const urls = entries
-    .map((entry) => {
-      const links = entry.alternates
-        .map((item) => `    <xhtml:link rel="alternate" hreflang="${item.lang}" href="${item.href}" />`)
-        .join('\n')
-      return `  <url>
-    <loc>${entry.loc}</loc>
-${links}
-    <lastmod>${entry.lastmod}</lastmod>
-    <changefreq>${entry.changefreq}</changefreq>
-    <priority>${entry.priority}</priority>
-  </url>`
-    })
-    .join('\n')
-
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${urls}
-</urlset>
-`
-}
