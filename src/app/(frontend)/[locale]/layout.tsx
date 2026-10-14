@@ -63,6 +63,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     applicationName: siteName,
     title: {
       default: `${t('homeTitle')} — ${siteName}`,
+      template: `%s — ${siteName}`,
     },
     description: t('homeDescription'),
     icons: {

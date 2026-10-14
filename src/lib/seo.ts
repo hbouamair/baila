@@ -30,8 +30,8 @@ export async function buildPageMetadata(
   const siteUrl = getSiteUrl()
   const path = getPathname({ locale, href })
   const url = `${siteUrl}${path}`
-  const rawTitle = options.titleOverride ?? t(titleKey)
-  const title = `${rawTitle} — ${siteName}`
+  const title = options.titleOverride ?? t(titleKey)
+  const brandedTitle = `${title} — ${siteName}`
   const description = options.descriptionOverride ?? t(descriptionKey)
   const image = absoluteUrl(options.image || DEFAULT_OG_IMAGE)
 
@@ -50,7 +50,7 @@ export async function buildPageMetadata(
       languages,
     },
     openGraph: {
-      title,
+      title: brandedTitle,
       description,
       url,
       locale: openGraphLocale(locale),
@@ -68,7 +68,7 @@ export async function buildPageMetadata(
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: brandedTitle,
       description,
       images: [image],
     },
