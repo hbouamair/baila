@@ -2,29 +2,41 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { CmsText } from '@/components/CmsText'
 
+import { JsonLd } from '@/components/JsonLd'
 import { Container } from '@/components/ui/Container'
-import { Link } from '@/i18n/navigation'
+import { getPathname, Link } from '@/i18n/navigation'
 import type { AppLocale } from '@/i18n/routing'
 import { getArtistBySlug } from '@/lib/payload'
 import { buildPageMetadata } from '@/lib/seo'
+import { getSiteUrl } from '@/lib/site'
 import { featuredArtists } from '@/lib/stays'
+import { artistJsonLd } from '@/lib/structured-data'
 import { getMediaAlt, resolveArtistPhoto } from '@/lib/utils'
 
 type PageProps = {
   params: Promise<{ locale: AppLocale; slug: string }>
 }
 
+export function generateStaticParams() {
+  return featuredArtists.map((artist) => ({ slug: artist.slug }))
+}
+
 export async function generateMetadata({ params }: PageProps) {
   const { locale, slug } = await params
-  const artist = (await getArtistBySlug(slug, locale)) || featuredArtists.find((item) => item.slug === slug)
-  const base = await buildPageMetadata(locale, 'artistsTitle', 'artistsDescription', {
-    pathname: '/artistes/[slug]',
-    params: { slug },
-  })
-  return {
-    ...base,
-    title: artist ? `${artist.name} - Bailaimos` : base.title,
-  }
+  const featured = featuredArtists.find((item) => item.slug === slug)
+  const artist = (await getArtistBySlug(slug, locale)) || featured
+  const t = await getTranslations({ locale, namespace: 'Meta' })
+  return buildPageMetadata(
+    locale,
+    'artistsTitle',
+    'artistsDescription',
+    { pathname: '/artistes/[slug]', params: { slug } },
+    {
+      titleOverride: artist?.name,
+      descriptionOverride: artist ? t('artistDescription', { name: artist.name }) : undefined,
+      image: featured?.photo.split('?')[0] || '/artists/lineup-hero.jpg',
+    },
+  )
 }
 
 export default async function ArtistDetailPage({ params }: PageProps) {
@@ -40,8 +52,18 @@ export default async function ArtistDetailPage({ params }: PageProps) {
   const photo = featured?.photo || (cmsArtist ? resolveArtistPhoto(cmsArtist) : '')
   const country = cmsArtist?.country
 
+  const pageUrl = `${getSiteUrl()}${getPathname({ locale, href: { pathname: '/artistes/[slug]', params: { slug } } })}`
+
   return (
     <div className="bg-night pb-24 pt-32 text-paper">
+      <JsonLd
+        data={artistJsonLd({
+          name,
+          url: pageUrl,
+          image: photo,
+          role,
+        })}
+      />
       <Container className="grid gap-10 lg:grid-cols-[minmax(0,22rem)_1fr] lg:items-end">
         <div className="film-frame">
           <div className="film-frame-core aspect-[4/5]">

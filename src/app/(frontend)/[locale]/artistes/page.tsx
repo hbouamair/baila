@@ -12,7 +12,9 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params
-  return buildPageMetadata(locale, 'artistsTitle', 'artistsDescription', '/artistes')
+  return buildPageMetadata(locale, 'artistsTitle', 'artistsDescription', '/artistes', {
+    image: '/artists/lineup-hero.jpg',
+  })
 }
 
 export default async function ArtistsPage({ params }: PageProps) {

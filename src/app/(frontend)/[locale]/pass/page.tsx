@@ -18,7 +18,9 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params
-  return buildPageMetadata(locale, 'passTitle', 'passDescription', '/pass')
+  return buildPageMetadata(locale, 'passTitle', 'passDescription', '/pass', {
+    image: '/cinematic/hero.jpg',
+  })
 }
 
 export default async function PassPage({ params }: PageProps) {

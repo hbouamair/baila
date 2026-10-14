@@ -1,15 +1,19 @@
+import type { Metadata, Viewport } from 'next'
 import { Archivo, Great_Vibes, Jost } from 'next/font/google'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
+import { AnalyticsScript } from '@/components/AnalyticsScript'
 import { BackToTop } from '@/components/BackToTop'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { JsonLd } from '@/components/JsonLd'
 import { MouseGlow } from '@/components/MouseGlow'
-import { AnalyticsScript } from '@/components/AnalyticsScript'
 import { routing } from '@/i18n/routing'
 import { getSiteSettings } from '@/lib/payload'
+import { getSiteUrl } from '@/lib/site'
+import { websiteJsonLd } from '@/lib/structured-data'
 import '../globals.css'
 
 const jost = Jost({
@@ -41,6 +45,37 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }
 
+export const viewport: Viewport = {
+  themeColor: '#06140c',
+  width: 'device-width',
+  initialScale: 1,
+}
+
+export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
+  const { locale } = await params
+  if (!hasLocale(routing.locales, locale)) return {}
+  setRequestLocale(locale)
+  const t = await getTranslations({ locale, namespace: 'Meta' })
+  const siteName = t('siteName')
+
+  return {
+    metadataBase: new URL(getSiteUrl()),
+    applicationName: siteName,
+    title: {
+      default: `${t('homeTitle')} — ${siteName}`,
+    },
+    description: t('homeDescription'),
+    icons: {
+      icon: [{ url: '/brand/bailaimos-logo.png', type: 'image/png' }],
+      apple: '/brand/bailaimos-logo.png',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  }
+}
+
 export default async function LocaleLayout({ children, params }: LayoutProps) {
   const { locale } = await params
   if (!hasLocale(routing.locales, locale)) {
@@ -63,6 +98,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col bg-night font-sans text-paper">
+        <JsonLd data={websiteJsonLd()} />
         <NextIntlClientProvider messages={messages}>
           <AnalyticsScript domain={plausibleDomain} />
           <a

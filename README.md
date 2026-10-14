@@ -64,7 +64,7 @@ Dans le projet Vercel (Production + Preview) :
 | --- | --- |
 | `DATABASE_URL` | optionnel si l’intégration Supabase est connectée |
 | `PAYLOAD_SECRET` | longue chaîne aléatoire |
-| `NEXT_PUBLIC_SITE_URL` | `https://votre-domaine.vercel.app` |
+| `SITE_URL` | `https://bailaimosbachatafestival.com` (Vercel type: Config) |
 | `S3_BUCKET` | `media` |
 | `S3_REGION` | région du projet (ex. `eu-west-1`) |
 | `S3_ENDPOINT` | URL S3 ci-dessus |

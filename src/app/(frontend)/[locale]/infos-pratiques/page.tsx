@@ -17,7 +17,9 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params
-  return buildPageMetadata(locale, 'infoTitle', 'infoDescription', '/infos-pratiques')
+  return buildPageMetadata(locale, 'infoTitle', 'infoDescription', '/infos-pratiques', {
+    image: '/venue/lobby-atrium.jpg',
+  })
 }
 
 export default async function PracticalInfoPage({ params }: PageProps) {

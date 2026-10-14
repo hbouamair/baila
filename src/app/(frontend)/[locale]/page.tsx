@@ -2,10 +2,12 @@ import { getFormatter, getTranslations, setRequestLocale } from 'next-intl/serve
 
 import { CinematicFilm } from '@/components/cinematic/CinematicFilm'
 import { AfterFilm } from '@/components/home/AfterFilm'
+import { JsonLd } from '@/components/JsonLd'
 import type { AppLocale } from '@/i18n/routing'
 import { getArtists, getSiteSettings } from '@/lib/payload'
 import { buildPageMetadata } from '@/lib/seo'
 import { featuredArtists, stayPackages } from '@/lib/stays'
+import { eventJsonLd } from '@/lib/structured-data'
 import { formatCompactRange, formatPrice, resolveArtistPhoto } from '@/lib/utils'
 
 type PageProps = {
@@ -21,13 +23,14 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  const [artists, settings, film, roles, home, stay, format] = await Promise.all([
+  const [artists, settings, film, roles, home, stay, meta, format] = await Promise.all([
     getArtists(locale),
     getSiteSettings(locale),
     getTranslations({ locale, namespace: 'Film' }),
     getTranslations({ locale, namespace: 'Artists' }),
     getTranslations({ locale, namespace: 'Home' }),
     getTranslations({ locale, namespace: 'Stay' }),
+    getTranslations({ locale, namespace: 'Meta' }),
     getFormatter({ locale }),
   ])
 
@@ -73,6 +76,12 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={eventJsonLd(locale, {
+          name: 'Bailaimos Festival by El Baile',
+          description: meta('homeDescription'),
+        })}
+      />
       <CinematicFilm
         when={when}
         where="Palm Plaza Marrakech"

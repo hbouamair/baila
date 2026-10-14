@@ -1,9 +1,11 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { FaqStage } from '@/components/faq/FaqStage'
+import { JsonLd } from '@/components/JsonLd'
 import type { AppLocale } from '@/i18n/routing'
 import type { FaqGroupView } from '@/lib/faqs'
 import { buildPageMetadata } from '@/lib/seo'
+import { faqJsonLd } from '@/lib/structured-data'
 
 type PageProps = {
   params: Promise<{ locale: AppLocale }>
@@ -35,13 +37,18 @@ export default async function FaqPage({ params }: PageProps) {
   }))
 
   return (
-    <FaqStage
-      titleLead={t('titleLead')}
-      title={t('title')}
-      intro={t('intro')}
-      seeQuestions={t('seeQuestions')}
-      contactCta={t('contactCta')}
-      groups={groups}
-    />
+    <>
+      <JsonLd
+        data={faqJsonLd(groups.flatMap((group) => group.items.map((item) => ({ question: item.question, answer: item.answer }))))}
+      />
+      <FaqStage
+        titleLead={t('titleLead')}
+        title={t('title')}
+        intro={t('intro')}
+        seeQuestions={t('seeQuestions')}
+        contactCta={t('contactCta')}
+        groups={groups}
+      />
+    </>
   )
 }
