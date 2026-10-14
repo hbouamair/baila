@@ -3,7 +3,6 @@ import type { MetadataRoute } from 'next'
 import { getSiteUrl } from '@/lib/site'
 
 export default function robots(): MetadataRoute.Robots {
-  const site = getSiteUrl()
   return {
     rules: [
       {
@@ -12,7 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin', '/admin/'],
       },
     ],
-    sitemap: `${site}/sitemap.xml`,
-    host: site,
+    sitemap: `${getSiteUrl()}/sitemap.xml`,
   }
 }
