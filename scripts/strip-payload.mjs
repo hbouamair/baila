@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 
 const leftovers = [
   'src/app/(payload)',
+  'src/app/sitemap.xml',
   'src/collections',
   'src/globals',
   'src/seed',

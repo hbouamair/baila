@@ -1,4 +1,4 @@
 {
-  "buildCommand": "rm -rf \"src/app/(payload)\" src/collections src/globals src/seed src/payload.config.ts && pnpm run build",
+  "buildCommand": "rm -rf \"src/app/(payload)\" src/app/sitemap.xml src/collections src/globals src/seed src/payload.config.ts && pnpm run build",
   "framework": "nextjs"
 }
