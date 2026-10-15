@@ -21,6 +21,10 @@ export default function AdminLoginPage() {
       return
     }
     setPending(false)
+    if (response.status === 503) {
+      setError('Studio is not configured on this host. Add ADMIN_PASSWORD in Vercel, then Redeploy.')
+      return
+    }
     setError('Wrong password.')
   }
 

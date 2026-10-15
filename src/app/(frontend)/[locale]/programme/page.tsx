@@ -26,6 +26,12 @@ function slotKey(item: { startTime: string; title: string }) {
   return `${item.startTime}|${item.title.toLowerCase()}`
 }
 
+function agendaSortKey(time: string) {
+  const [hours, minutes] = time.split(':').map(Number)
+  const value = hours * 60 + (minutes || 0)
+  return value < 10 * 60 ? value + 24 * 60 : value
+}
+
 export default async function ProgrammePage({ params }: PageProps) {
   const { locale } = await params
   setRequestLocale(locale)
@@ -65,7 +71,7 @@ export default async function ProgrammePage({ params }: PageProps) {
     const merged: ProgrammeItemView[] = [
       ...published,
       ...extras.filter((item) => !seen.has(slotKey(item))),
-    ].sort((a, b) => a.startTime.localeCompare(b.startTime) || a.title.localeCompare(b.title))
+    ].sort((a, b) => agendaSortKey(a.startTime) - agendaSortKey(b.startTime) || a.title.localeCompare(b.title))
 
     return {
       date,

@@ -11,6 +11,8 @@ const STATIC_PAGES: Href[] = [
   '/artistes',
   '/programme',
   '/infos-pratiques',
+  '/infos',
+  '/activites',
   '/faq',
   '/ambassadeurs',
   '/contact',

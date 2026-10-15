@@ -2,7 +2,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { CmsText } from '@/components/CmsText'
 
 import { Reveal } from '@/components/Reveal'
-import { TravelGuide } from '@/components/venue/TravelGuide'
 import { VenueStage } from '@/components/venue/VenueStage'
 import { VenueStay } from '@/components/venue/VenueStay'
 import type { AppLocale } from '@/i18n/routing'
@@ -50,13 +49,7 @@ export default async function PracticalInfoPage({ params }: PageProps) {
         storyLead={t('storyLead')}
         storyTitle={t('storyTitle')}
         storyBody={t('storyBody')}
-        groundsTitle={t('groundsTitle')}
-        grounds={[
-          { src: '/venue/pool.jpg?v=1', caption: t('shotPool'), position: 'center 72%' },
-          { src: '/venue/terrace.jpg?v=1', caption: t('shotTerrace'), position: 'center 40%' },
-          { src: '/venue/garden.jpg', caption: t('shotGarden'), position: 'center 45%' },
-          { src: '/venue/exterior.jpg', caption: t('shotExterior'), position: 'center 40%' },
-        ]}
+        storyShot={{ src: '/venue/pool.jpg?v=1', caption: t('shotPool'), position: 'center 72%' }}
         stayLead={t('stayLead')}
         stayTitle={t('stayTitle')}
         stayIntro={t('stayIntro')}
@@ -81,30 +74,6 @@ export default async function PracticalInfoPage({ params }: PageProps) {
             body: t('catDoubleBody'),
           },
         ]}
-      />
-
-      <TravelGuide
-        copy={{
-          lead: t('travelLead'),
-          title: t('travelTitle'),
-          intro: t('travelIntro'),
-          addressTitle: t('addressTitle'),
-          mapsCta: t('mapsCta'),
-          flyTitle: t('flyTitle'),
-          flyBody: t('flyBody'),
-          trainTitle: t('trainTitle'),
-          trainBody: t('trainBody'),
-          busTitle: t('busTitle'),
-          busBody: t('busBody'),
-          taxiTitle: t('taxiTitle'),
-          taxiFare: t('taxiFare'),
-          taxiMad: t('taxiMad'),
-          taxiPax: t('taxiPax'),
-          taxiBody: t('taxiBody'),
-          visaTitle: t('visaTitle'),
-          visaBody: t('visaBody'),
-          visaCta: t('visaCta'),
-        }}
       />
 
       {hasContent ? (

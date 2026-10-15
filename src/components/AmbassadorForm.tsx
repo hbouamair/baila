@@ -17,7 +17,7 @@ function Choice({
   children: React.ReactNode
 }) {
   return (
-    <label className="flex cursor-pointer items-start gap-3 border border-white/12 px-4 py-3 text-sm text-paper/85 transition-colors has-[:checked]:border-sun/70 has-[:checked]:bg-sun/10">
+    <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/12 px-4 py-3 text-sm text-paper/85 transition-colors has-[:checked]:border-sun/70 has-[:checked]:bg-sun/10">
       <input type={type} name={name} value={value} required={required} className="mt-1 accent-[#ffc220]" />
       <span>{children}</span>
     </label>
@@ -124,14 +124,11 @@ export function AmbassadorForm({ locale }: { locale: string }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="suite-card is-form">
+    <form onSubmit={onSubmit} className="ambassador-form">
       <div className="space-y-6 p-6 sm:p-8 lg:p-10">
         <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" />
         <input type="checkbox" name="botcheck" tabIndex={-1} className="hidden" />
-        <div>
-          <p className="font-poster text-[2.15rem] leading-none">{t('formTitle')}</p>
-          <p className="mt-3 text-sm text-paper/55">{t('requiredHint')}</p>
-        </div>
+        <p className="text-sm text-paper/55">{t('requiredHint')}</p>
 
         <div className="grid gap-5 sm:grid-cols-2">
           <label className="block text-sm text-paper/80">
@@ -210,7 +207,7 @@ export function AmbassadorForm({ locale }: { locale: string }) {
             <Choice type="checkbox" name="promote" value="parties">
               {t('promoteParties')}
             </Choice>
-            <label className="flex cursor-pointer items-start gap-3 border border-white/12 px-4 py-3 text-sm text-paper/85 transition-colors has-[:checked]:border-sun/70 has-[:checked]:bg-sun/10">
+            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/12 px-4 py-3 text-sm text-paper/85 transition-colors has-[:checked]:border-sun/70 has-[:checked]:bg-sun/10">
               <input
                 type="checkbox"
                 name="promote"
@@ -250,6 +247,7 @@ export function AmbassadorForm({ locale }: { locale: string }) {
         </button>
         {status === 'success' ? <p className="text-sm text-sun">{t('success')}</p> : null}
         {status === 'error' ? <p className="text-sm text-blush">{t('error')}</p> : null}
+        <p className="text-sm text-paper/50">{t('privacy')}</p>
       </div>
     </form>
   )

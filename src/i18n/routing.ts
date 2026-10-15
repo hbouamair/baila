@@ -31,6 +31,16 @@ export const routing = defineRouting({
       en: '/practical-info',
       es: '/info-practica',
     },
+    '/infos': {
+      fr: '/infos',
+      en: '/info',
+      es: '/infos',
+    },
+    '/activites': {
+      fr: '/activites',
+      en: '/extras',
+      es: '/extras',
+    },
     '/faq': '/faq',
     '/contact': '/contact',
     '/ambassadeurs': {

@@ -5,7 +5,7 @@ import type { AppLocale } from '@/i18n/routing'
 import { stayPackages } from '@/lib/stays'
 import { formatPrice } from '@/lib/utils'
 
-type GroundShot = {
+type StoryShot = {
   src: string
   caption: string
   position?: string
@@ -22,8 +22,7 @@ type VenueStayProps = {
   storyLead: string
   storyTitle: string
   storyBody: string
-  groundsTitle: string
-  grounds: GroundShot[]
+  storyShot: StoryShot
   stayLead: string
   stayTitle: string
   stayIntro: string
@@ -49,8 +48,7 @@ export function VenueStay({
   storyLead,
   storyTitle,
   storyBody,
-  groundsTitle,
-  grounds,
+  storyShot,
   stayLead,
   stayTitle,
   stayIntro,
@@ -62,8 +60,6 @@ export function VenueStay({
   ctaBody,
   stays,
 }: VenueStayProps) {
-  const [pool, ...restGrounds] = grounds
-
   return (
     <>
       <section className="px-5 py-[var(--space-section)] sm:px-10 lg:px-16">
@@ -124,20 +120,18 @@ export function VenueStay({
 
       <section className="border-t border-white/10 px-5 py-[var(--space-section)] sm:px-10 lg:px-16">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-          {pool ? (
-            <Reveal className="lg:col-span-6">
-              <div className="hotel-split-frame">
-                <figure className="suite-shot aspect-[4/5] sm:aspect-[16/11]">
-                  <img
-                    src={pool.src}
-                    alt={pool.caption}
-                    className="h-full w-full object-cover"
-                    style={pool.position ? { objectPosition: pool.position } : undefined}
-                  />
-                </figure>
-              </div>
-            </Reveal>
-          ) : null}
+          <Reveal className="lg:col-span-6">
+            <div className="hotel-split-frame">
+              <figure className="suite-shot aspect-[4/5] sm:aspect-[16/11]">
+                <img
+                  src={storyShot.src}
+                  alt={storyShot.caption}
+                  className="h-full w-full object-cover"
+                  style={storyShot.position ? { objectPosition: storyShot.position } : undefined}
+                />
+              </figure>
+            </div>
+          </Reveal>
           <Reveal className="lg:col-span-6" delay={80}>
             <p className="font-script text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] text-blush">{storyLead}</p>
             <h2 className="font-poster mt-3 max-w-[14ch] text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05]">{storyTitle}</h2>
@@ -155,29 +149,6 @@ export function VenueStay({
               <span className="film-cta-mark" aria-hidden />
             </BookStayLink>
           </Reveal>
-        </div>
-
-        <div className="mt-16">
-          <p className="font-script text-center text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.1] text-blush">{groundsTitle}</p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {restGrounds.map((shot, index) => (
-              <Reveal key={shot.src} delay={index * 70}>
-                <figure>
-                  <div className="hotel-split-frame">
-                    <div className="suite-shot aspect-[16/11]">
-                      <img
-                        src={shot.src}
-                        alt={shot.caption}
-                        className="h-full w-full object-cover"
-                        style={shot.position ? { objectPosition: shot.position } : undefined}
-                      />
-                    </div>
-                  </div>
-                  <figcaption className="mt-3 text-sm text-paper/70">{shot.caption}</figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
     </>

@@ -167,7 +167,7 @@ export function CinematicFilm({ copy, artists, when: _when, where, date }: Cinem
                 <Link
                   key={artist.id}
                   href={{ pathname: '/artistes/[slug]', params: { slug: artist.slug } }}
-                  className="film-portrait film-frame group relative block h-[56vh] w-[78vw] shrink-0 snap-center sm:w-[46vw] lg:h-[62vh] lg:w-[30vw]"
+                  className="film-portrait film-frame group relative block h-[64vh] w-[78vw] shrink-0 snap-center sm:w-[46vw] lg:h-[70vh] lg:w-[30vw]"
                 >
                   <div className="film-frame-core relative h-full">
                     <img src={artist.photo} alt="" className="h-full w-full object-cover" style={{ objectPosition: 'center 42%' }} />

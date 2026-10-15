@@ -30,110 +30,80 @@ function slot(
 }
 
 export const publishedProgramme: PublishedSlot[] = [
-  slot('thu-checkin', '2027-05-20', '15:00', undefined, 'other', 'Lobby', {
-    fr: 'Check-in',
-    en: 'Check-in',
-    es: 'Check-in',
+  slot('thu-essaouira', '2027-05-20', '10:00', '20:00', 'other', 'Essaouira', {
+    fr: 'Excursion à Essaouira',
+    en: 'Essaouira day trip',
+    es: 'Excursión a Essaouira',
   }),
-  slot('thu-pool', '2027-05-20', '15:00', '19:00', 'party', 'Piscine', {
-    fr: 'Pool party',
-    en: 'Pool party',
-    es: 'Pool party',
-  }),
-  slot('thu-workshops', '2027-05-20', '19:00', '21:00', 'workshop', 'Centre de conférence', {
+  slot('thu-workshops', '2027-05-20', '19:00', '21:00', 'workshop', 'Palm Plaza', {
     fr: 'Workshops',
     en: 'Workshops',
     es: 'Workshops',
   }),
-  slot('thu-welcome', '2027-05-20', '23:00', '04:00', 'party', 'Main room', {
-    fr: 'Welcome party',
-    en: 'Welcome party',
-    es: 'Welcome party',
+  slot('thu-party', '2027-05-20', '23:00', '03:00', 'party', 'Palm Plaza', {
+    fr: 'Night party',
+    en: 'Night party',
+    es: 'Night party',
   }),
-  slot('fri-breakfast', '2027-05-21', '07:00', '10:30', 'other', 'Restaurant', {
-    fr: 'Petit-déjeuner',
-    en: 'Breakfast',
-    es: 'Desayuno',
+  slot('fri-city', '2027-05-21', '14:00', '19:00', 'other', 'Marrakech', {
+    fr: 'Visite de Marrakech',
+    en: 'Marrakech city tour',
+    es: 'Tour por Marrakech',
   }),
-  slot('fri-sightseeing', '2027-05-21', '11:00', '15:00', 'other', 'Marrakech', {
-    fr: 'Sightseeing',
-    en: 'Sightseeing',
-    es: 'Visita de la ciudad',
-  }),
-  slot('fri-pool', '2027-05-21', '12:00', '19:00', 'party', 'Piscine', {
-    fr: 'Pool party',
-    en: 'Pool party',
-    es: 'Pool party',
-  }),
-  slot('fri-workshops', '2027-05-21', '15:00', '19:00', 'workshop', 'Centre de conférence', {
+  slot('fri-workshops', '2027-05-21', '19:00', '21:00', 'workshop', 'Palm Plaza', {
     fr: 'Workshops',
     en: 'Workshops',
     es: 'Workshops',
   }),
-  slot('fri-party', '2027-05-21', '23:00', '06:00', 'party', 'Main room', {
-    fr: 'Friday party',
-    en: 'Friday party',
-    es: 'Friday party',
+  slot('fri-party', '2027-05-21', '23:00', '05:00', 'party', 'Palm Plaza', {
+    fr: 'Night party',
+    en: 'Night party',
+    es: 'Night party',
   }),
-  slot('sat-breakfast', '2027-05-22', '06:00', '10:30', 'other', 'Restaurant', {
-    fr: 'Petit-déjeuner',
-    en: 'Breakfast',
-    es: 'Desayuno',
-  }),
-  slot('sat-workshops', '2027-05-22', '11:00', '19:00', 'workshop', 'Centre de conférence', {
+  slot('sat-workshops', '2027-05-22', '11:00', '16:00', 'workshop', 'Palm Plaza', {
     fr: 'Workshops',
     en: 'Workshops',
     es: 'Workshops',
   }),
-  slot('sat-pool', '2027-05-22', '12:00', '19:00', 'party', 'Piscine', {
+  slot('sat-pool', '2027-05-22', '15:00', '20:00', 'party', 'Piscine', {
     fr: 'Pool party',
     en: 'Pool party',
     es: 'Pool party',
   }),
-  slot('sat-jj', '2027-05-22', '20:00', '22:00', 'other', 'Main room', {
-    fr: 'Jack & Jill',
-    en: 'Jack & Jill',
-    es: 'Jack & Jill',
+  slot('sat-jj', '2027-05-22', '20:00', '22:00', 'other', 'Palm Plaza', {
+    fr: 'Jack & Jill, éliminatoires',
+    en: 'Jack & Jill prelims',
+    es: 'Jack & Jill preliminares',
   }),
-  slot('sat-party', '2027-05-22', '23:00', '06:00', 'party', 'Main room', {
-    fr: 'Saturday party',
-    en: 'Saturday party',
-    es: 'Saturday party',
+  slot('sat-party', '2027-05-22', '00:00', '06:00', 'party', 'Palm Plaza', {
+    fr: 'Night party',
+    en: 'Night party',
+    es: 'Night party',
   }),
-  slot('sun-breakfast', '2027-05-23', '06:00', '10:30', 'other', 'Restaurant', {
-    fr: 'Petit-déjeuner',
-    en: 'Breakfast',
-    es: 'Desayuno',
+  slot('sun-jj', '2027-05-23', '13:00', '15:00', 'other', 'Palm Plaza', {
+    fr: 'Jack & Jill, finale',
+    en: 'Jack & Jill finals',
+    es: 'Jack & Jill final',
   }),
-  slot('sun-workshops', '2027-05-23', '11:00', '13:00', 'workshop', 'Centre de conférence', {
-    fr: 'Workshops',
-    en: 'Workshops',
-    es: 'Workshops',
-  }),
-  slot('sun-pool', '2027-05-23', '12:00', '19:00', 'party', 'Piscine', {
+  slot('sun-pool', '2027-05-23', '16:00', '20:00', 'party', 'Piscine', {
     fr: 'Pool party',
     en: 'Pool party',
     es: 'Pool party',
   }),
-  slot('sun-dinner', '2027-05-23', '20:00', '22:30', 'other', 'Restaurant', {
-    fr: 'Dîner',
-    en: 'Dinner',
-    es: 'Cena',
-  }),
-  slot('sun-party', '2027-05-23', '23:00', '06:00', 'party', 'Main room', {
+  slot('sun-closing', '2027-05-23', '22:00', '04:00', 'party', 'Palm Plaza', {
     fr: 'Closing party',
     en: 'Closing party',
     es: 'Closing party',
   }),
-  slot('mon-breakfast', '2027-05-24', '06:00', '10:30', 'other', 'Restaurant', {
-    fr: 'Petit-déjeuner',
-    en: 'Breakfast',
-    es: 'Desayuno',
+  slot('mon-agafay', '2027-05-24', '12:00', '19:00', 'other', 'Agafay', {
+    fr: 'Expérience désert Agafay',
+    en: 'Agafay desert experience',
+    es: 'Experiencia desierto Agafay',
   }),
-  slot('mon-checkout', '2027-05-24', '12:00', undefined, 'other', 'Lobby', {
-    fr: 'Check-out',
-    en: 'Check-out',
-    es: 'Check-out',
+  slot('mon-party', '2027-05-24', '21:00', '01:00', 'party', 'Palm Plaza', {
+    fr: 'Night party',
+    en: 'Night party',
+    es: 'Night party',
   }),
 ]
 

@@ -112,7 +112,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           </a>
           <MouseGlow />
           <Header festivalName={festivalName} />
-          <main id="content" className="flex-1">
+          <main id="content" className="relative z-0 isolate flex-1">
             {children}
           </main>
           <Footer

@@ -17,7 +17,7 @@ export function BookStayLink({ children, className, testId, onClick }: BookStayL
   const href = `${getPathname({ href: '/pass', locale })}#tickets`
 
   return (
-    <a href={href} className={cn('film-cta relative z-50', className)} data-testid={testId} onClick={onClick}>
+    <a href={href} className={cn('film-cta', className)} data-testid={testId} onClick={onClick}>
       {children}
     </a>
   )
