@@ -136,7 +136,7 @@ export function EarthGlobe({ pin, hint, focusCity }: EarthGlobeProps) {
     scene.add(sun)
 
     const loader = new THREE.TextureLoader()
-    loader.load('/globe/earth-blue-marble.jpg', (texture) => {
+    loader.load('/globe/earth-blue-marble.jpg', (texture: THREE.Texture) => {
       texture.colorSpace = THREE.SRGBColorSpace
       texture.anisotropy = renderer.capabilities.getMaxAnisotropy()
       earthMat.map = texture
