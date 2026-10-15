@@ -842,6 +842,317 @@ summary::-webkit-details-marker {
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08);
 }
 
+.suite-shot {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-velvet);
+}
+
+.suite-shot img {
+  transition: transform 900ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .suite-shot:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.hotel-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  color: var(--color-sun);
+}
+
+.hotel-rule::before,
+.hotel-rule::after {
+  content: '';
+  height: 1px;
+  width: 3.25rem;
+  background: linear-gradient(90deg, transparent, rgb(230 208 74 / 0.75), transparent);
+}
+
+.hotel-rule span {
+  width: 7px;
+  height: 7px;
+  rotate: 45deg;
+  border: 1px solid currentColor;
+  background: var(--color-night);
+  box-shadow: 0 0 0 3px var(--color-night);
+}
+
+.hotel-bar {
+  border: 1px solid rgb(230 208 74 / 0.22);
+  background:
+    linear-gradient(180deg, rgb(246 241 223 / 0.07), transparent 42%),
+    rgb(13 36 22 / 0.96);
+  box-shadow:
+    inset 0 1px 0 rgb(246 241 223 / 0.08),
+    0 24px 50px -28px rgb(6 20 12 / 0.85);
+}
+
+.hotel-bar-cell {
+  padding: 1.15rem 1.2rem 1.2rem;
+  border-right: 1px solid rgb(246 241 223 / 0.08);
+}
+
+@media (max-width: 1023px) {
+  .hotel-bar-cell:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .hotel-bar-cell:nth-child(-n + 2) {
+    border-bottom: 1px solid rgb(246 241 223 / 0.08);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hotel-bar-cell:last-child {
+    border-right: 0;
+  }
+}
+
+.suite-card {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgb(230 208 74 / 0.2);
+  background:
+    linear-gradient(180deg, rgb(246 241 223 / 0.04), transparent 28%),
+    rgb(13 36 22 / 0.72);
+  box-shadow:
+    inset 0 1px 0 rgb(246 241 223 / 0.06),
+    0 22px 48px -28px rgb(6 20 12 / 0.8);
+  transition:
+    transform 420ms var(--ease-out),
+    border-color 420ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .suite-card:hover {
+    transform: translateY(-6px);
+    border-color: rgb(230 208 74 / 0.48);
+  }
+
+  .suite-card.is-form:hover {
+    transform: none;
+  }
+}
+
+.suite-card-shot {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-velvet);
+}
+
+.suite-card-shot img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .suite-card:hover .suite-card-shot img {
+    transform: scale(1.05);
+  }
+}
+
+.suite-card-chip {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 2;
+  border: 1px solid rgb(230 208 74 / 0.5);
+  background: rgb(6 20 12 / 0.78);
+  padding: 0.32rem 0.7rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-sun);
+}
+
+.suite-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.35rem 1.35rem 1.5rem;
+}
+
+.suite-card-name {
+  font-family: var(--font-poster);
+  font-size: clamp(1.55rem, 2.1vw, 1.95rem);
+  line-height: 1.08;
+  color: var(--color-paper);
+}
+
+.suite-card-price {
+  margin-top: auto;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgb(230 208 74 / 0.18);
+}
+
+.perk-plate {
+  display: flex;
+  min-height: 11rem;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgb(230 208 74 / 0.22);
+  background:
+    linear-gradient(165deg, rgb(246 241 223 / 0.07), transparent 38%),
+    rgb(13 36 22 / 0.7);
+  padding: 1.45rem 1.4rem 1.35rem;
+}
+
+.perk-mark {
+  display: block;
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  rotate: 45deg;
+  border: 1px solid var(--color-sun);
+}
+
+.reason-cell {
+  border-top: 1px solid rgb(230 208 74 / 0.28);
+  padding-top: 1rem;
+}
+
+.flight-poster {
+  overflow: hidden;
+  border: 1px solid rgb(230 208 74 / 0.22);
+  background:
+    radial-gradient(ellipse at 50% 12%, rgb(230 208 74 / 0.1), transparent 46%),
+    linear-gradient(180deg, rgb(13 36 22 / 0.96), rgb(6 20 12 / 0.98));
+}
+
+.flight-globe {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  width: min(100%, 36rem);
+  margin-inline: auto;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.flight-globe.is-grabbing {
+  cursor: grabbing;
+}
+
+.flight-globe canvas,
+.flight-labels {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.flight-labels {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.flight-city {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  white-space: nowrap;
+  border: 1px solid rgb(230 208 74 / 0.45);
+  background: rgb(6 20 12 / 0.88);
+  padding: 0.16rem 0.38rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
+  color: var(--color-paper);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.flight-city.is-hub {
+  z-index: 3;
+  border-color: rgb(243 183 200 / 0.8);
+  background: var(--color-sun);
+  font-family: var(--font-poster);
+  font-size: 0.85rem;
+  color: var(--color-night);
+}
+
+.flight-city.is-focus {
+  z-index: 3;
+  border-color: rgb(230 208 74 / 0.95);
+  background: var(--color-sun);
+  color: var(--color-night);
+}
+
+.flight-fare-row span {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+
+.flight-fare-row strong {
+  font-family: var(--font-poster);
+  font-size: 1rem;
+  line-height: 1.05;
+}
+
+.flight-banner {
+  border-top: 1px solid rgb(230 208 74 / 0.28);
+  background: var(--color-sun);
+  padding: 1.15rem 1.25rem 1.25rem;
+  text-align: center;
+  color: var(--color-night);
+}
+
+.flight-fare-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid rgb(230 208 74 / 0.2);
+  background: rgb(13 36 22 / 0.55);
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  color: var(--color-paper);
+  cursor: pointer;
+}
+
+.flight-fare-row.is-active {
+  border-color: rgb(230 208 74 / 0.7);
+  background: rgb(230 208 74 / 0.12);
+}
+
+.flight-fare-row strong {
+  color: var(--color-sun);
+}
+
+.suite-card.is-form .field {
+  border-radius: 0;
+  border-color: rgb(230 208 74 / 0.22);
+  background: rgb(6 20 12 / 0.55);
+}
+
+.suite-card.is-form .field:focus {
+  border-color: rgb(230 208 74 / 0.72);
+  box-shadow: 0 0 0 3px rgb(230 208 74 / 0.14);
+}
+
+.hotel-split-frame {
+  padding: 0.4rem;
+  border: 1px solid rgb(230 208 74 / 0.2);
+  background: rgb(6 20 12 / 0.35);
+}
+
 .film-frame-core {
   overflow: hidden;
   border-radius: calc(2rem - 0.4rem);

@@ -111,6 +111,15 @@ export default async function HomePage({ params }: PageProps) {
         stayNote={stay('perPerson')}
         stayCta={home('stayCta')}
         stayPhoto="/cinematic/hero.jpg?v=7"
+        locale={locale}
+        flyLead={home('flyLead')}
+        flyTitle={home('flyTitle')}
+        flyIntro={home('flyIntro')}
+        flyNote={home('flyNote')}
+        flyBanner={home('flyBanner')}
+        flyPin={home('flyPin')}
+        flyHint={home('flyHint')}
+        flyCta={home('flyCta')}
       />
     </>
   )

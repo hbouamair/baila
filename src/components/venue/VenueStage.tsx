@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 
-import { HotelMark } from '@/components/HotelMark'
+import { BookStayLink } from '@/components/BookStayLink'
 
 export type VenueStat = {
   value: string
@@ -16,6 +16,7 @@ type VenueStageProps = {
   intro: string
   place?: string
   stats: VenueStat[]
+  bookLabel: string
   children?: React.ReactNode
 }
 
@@ -23,7 +24,7 @@ function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value))
 }
 
-export function VenueStage({ title, headline, intro, place, stats, children }: VenueStageProps) {
+export function VenueStage({ title, headline, intro, stats, bookLabel, children }: VenueStageProps) {
   const heroRef = useRef<HTMLElement>(null)
   const layerRef = useRef<HTMLDivElement>(null)
 
@@ -61,36 +62,40 @@ export function VenueStage({ title, headline, intro, place, stats, children }: V
       <section ref={heroRef} className="relative min-h-[100dvh] overflow-hidden">
         <div ref={layerRef} className="absolute inset-0 origin-center will-change-transform">
           <img
-            src="/venue/lobby-atrium.jpg"
+            src="/venue/entrance.jpg?v=1"
             alt=""
-            className="venue-enter absolute inset-0 h-full w-full object-cover object-[center_35%]"
+            className="venue-enter absolute inset-0 h-full w-full object-cover object-[center_48%]"
           />
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[72%] bg-gradient-to-r from-night/88 via-night/42 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-night via-night/45 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-night/45" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-night/80 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-night via-night/55 to-transparent" />
 
-        <div className="relative z-10 flex min-h-[100dvh] flex-col justify-end px-5 pt-24 pb-8 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16">
-          <div className="venue-copy w-full max-w-[min(72rem,96vw)]">
-            <p className="font-script max-w-none text-[clamp(2.1rem,4.2vw,3.8rem)] leading-[1.05] text-blush">{title}</p>
-            <h1 className="font-poster mt-2 max-w-none text-[clamp(2.4rem,7.2vw,6.2rem)] leading-[0.9] tracking-[-0.03em] text-balance">
-              {headline}
-            </h1>
-            {place ? <p className="mt-2 text-sm tracking-[0.18em] text-paper/50 uppercase">{place}</p> : null}
+        <div className="relative z-10 flex min-h-[100dvh] flex-col items-center justify-center px-5 pt-24 pb-28 text-center sm:px-10 lg:px-16">
+          <p className="venue-copy font-script text-[clamp(2.1rem,4.2vw,3.6rem)] leading-[1.1] text-blush">{title}</p>
+          <h1 className="venue-copy font-poster mt-3 max-w-[16ch] text-[clamp(2.4rem,6.4vw,5.6rem)] leading-[1.05] tracking-[-0.03em] text-balance">
+            {headline}
+          </h1>
+          <p className="venue-copy-late mx-auto mt-5 max-w-[36rem] text-pretty text-paper/80 sm:text-lg">{intro}</p>
+          <div className="venue-copy-late mt-8 flex justify-center">
+            <BookStayLink>
+              {bookLabel}
+              <span className="film-cta-mark" aria-hidden />
+            </BookStayLink>
           </div>
-          <p className="venue-copy-late mt-4 max-w-[44rem] text-pretty text-paper/78 sm:mt-6 sm:text-lg sm:leading-snug">{intro}</p>
-          <div className="venue-copy-late mt-5">
-            <HotelMark />
-          </div>
-          <dl className="venue-copy-late mt-6 grid grid-cols-2 gap-2.5 xl:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="film-ticket w-full max-w-none px-3 py-3">
-                <dt className="text-xs text-paper/55 sm:text-sm">{stat.label}</dt>
-                <dd className="font-poster mt-1 text-[1.35rem] leading-none text-paper sm:text-[1.7rem]">{stat.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
+
+      <div className="relative z-10 mx-auto -mt-16 w-full max-w-[88rem] px-5 sm:px-10 lg:-mt-20 lg:px-16">
+        <dl className="hotel-bar grid grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="hotel-bar-cell">
+              <dt className="text-[0.72rem] text-paper/55 sm:text-sm">{stat.label}</dt>
+              <dd className="font-poster mt-1 text-[1.35rem] leading-none text-sun sm:text-[1.7rem]">{stat.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
 
       {children}
     </div>

@@ -24,6 +24,7 @@ export default async function AmbassadorsPage({ params }: PageProps) {
       titleLead={t('titleLead')}
       title={t('title')}
       intro={t('intro')}
+      rewardsLead={t('rewardsLead')}
       rewards={t('rewards')}
       apply={t('apply')}
       perks={[t('perk1'), t('perk2'), t('perk3'), t('perk4')]}

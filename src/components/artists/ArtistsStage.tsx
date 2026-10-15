@@ -49,23 +49,29 @@ export async function ArtistsStage({
 
   return (
     <div className="bg-night text-paper">
-      <section className="relative min-h-[100dvh] overflow-hidden">
-        <img
-          src="/artists/lineup-hero.jpg?v=1"
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover object-[center_28%]"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-night/28" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-night/80 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[72%] bg-gradient-to-r from-night/82 via-night/38 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] bg-gradient-to-t from-night via-night/50 to-transparent" />
+      <section className="relative min-h-[100dvh] overflow-hidden bg-[#edf3b0]">
+        <picture>
+          <source media="(min-width: 768px)" srcSet="/artists/lineup-hero.jpg?v=3" width={2048} height={1152} />
+          <img
+            src="/artists/lineup-hero-mobile.jpg?v=1"
+            alt=""
+            width={1408}
+            height={1760}
+            className="venue-enter absolute inset-0 h-full w-full object-cover object-center"
+          />
+        </picture>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-gradient-to-r from-night/55 via-night/18 to-transparent md:w-[72%] md:from-night/88 md:via-night/42" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] bg-gradient-to-t from-night via-night/45 to-transparent md:h-[55%]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-night/55 to-transparent" />
 
-        <div className="relative z-10 flex min-h-[100dvh] flex-col justify-end px-5 pb-10 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16">
-          <div className="venue-copy">
-            <p className="font-script text-[clamp(2.2rem,5vw,3.8rem)] leading-none text-blush">{titleLead}</p>
-            <h1 className="font-poster mt-2 max-w-[12ch] text-[clamp(3rem,12vw,8rem)] leading-[0.84]">{title}</h1>
+        <div className="relative z-10 flex min-h-[100dvh] flex-col justify-end px-5 pt-24 pb-8 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16">
+          <div className="venue-copy w-full max-w-[min(72rem,96vw)]">
+            <p className="font-script max-w-none text-[clamp(2.1rem,4.2vw,3.8rem)] leading-[1.05] text-blush">{titleLead}</p>
+            <h1 className="font-poster mt-2 max-w-none text-[clamp(2.4rem,7.2vw,6.2rem)] leading-[0.9] tracking-[-0.03em] text-balance">
+              {title}
+            </h1>
           </div>
-          <p className="venue-copy-late mt-6 max-w-[44rem] text-lg text-pretty text-paper/85 sm:text-2xl sm:leading-snug">
+          <p className="venue-copy-late mt-4 max-w-[44rem] text-pretty text-paper/78 sm:mt-6 sm:text-lg sm:leading-snug">
             {caption}
           </p>
           <p className="venue-copy-late mt-5 text-sm tracking-[0.12em] text-sun uppercase sm:tracking-[0.22em]">{countLabel}</p>

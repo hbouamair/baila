@@ -1,5 +1,7 @@
 import { BookStayLink } from '@/components/BookStayLink'
+import { FlightMap } from '@/components/home/FlightMap'
 import { Reveal } from '@/components/Reveal'
+import type { AppLocale } from '@/i18n/routing'
 import { Link } from '@/i18n/navigation'
 
 type AfterDay = {
@@ -20,6 +22,15 @@ type AfterFilmProps = {
   stayCta: string
   stayPhoto: string
   stayPhotoPosition?: string
+  locale: AppLocale
+  flyLead: string
+  flyTitle: string
+  flyIntro: string
+  flyNote: string
+  flyBanner: string
+  flyPin: string
+  flyHint: string
+  flyCta: string
 }
 
 export function AfterFilm({
@@ -35,6 +46,15 @@ export function AfterFilm({
   stayCta,
   stayPhoto,
   stayPhotoPosition,
+  locale,
+  flyLead,
+  flyTitle,
+  flyIntro,
+  flyNote,
+  flyBanner,
+  flyPin,
+  flyHint,
+  flyCta,
 }: AfterFilmProps) {
   return (
     <div className="bg-night text-paper">
@@ -63,6 +83,18 @@ export function AfterFilm({
           ))}
         </ol>
       </section>
+
+      <FlightMap
+        locale={locale}
+        lead={flyLead}
+        title={flyTitle}
+        intro={flyIntro}
+        note={flyNote}
+        banner={flyBanner}
+        pin={flyPin}
+        hint={flyHint}
+        cta={flyCta}
+      />
 
       <section className="relative min-h-[72vh] overflow-hidden lg:min-h-[86vh]">
         <img

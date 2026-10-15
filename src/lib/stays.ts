@@ -18,8 +18,8 @@ export type StayPackage = {
 export const stayPackages: StayPackage[] = [
   {
     id: 'two-bed',
-    photo: '/examples/stays/two-bed.jpg?v=3',
-    photoPosition: 'center 68%',
+    photo: '/venue/apt-two-bed-living.jpg?v=1',
+    photoPosition: 'center 62%',
     occupancy: 4,
     days: ['friday', 'saturday', 'sunday'],
     name: {
@@ -42,8 +42,8 @@ export const stayPackages: StayPackage[] = [
   },
   {
     id: 'one-bed',
-    photo: '/examples/stays/one-bed.jpg?v=4',
-    photoPosition: 'center 58%',
+    photo: '/venue/apt-living-kitchen.jpg?v=1',
+    photoPosition: 'center 42%',
     occupancy: 2,
     days: ['friday', 'saturday', 'sunday'],
     name: {
@@ -66,8 +66,8 @@ export const stayPackages: StayPackage[] = [
   },
   {
     id: 'double',
-    photo: '/examples/stays/double.jpg?v=3',
-    photoPosition: 'center 70%',
+    photo: '/venue/double-room.jpg?v=1',
+    photoPosition: 'center 58%',
     occupancy: 2,
     days: ['friday', 'saturday', 'sunday'],
     name: {

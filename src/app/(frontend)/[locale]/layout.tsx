@@ -5,6 +5,7 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import { notFound } from 'next/navigation'
 
 import { AnalyticsScript } from '@/components/AnalyticsScript'
+import { SitePulse } from '@/components/SitePulse'
 import { BackToTop } from '@/components/BackToTop'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -102,6 +103,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         <JsonLd data={websiteJsonLd()} />
         <NextIntlClientProvider messages={messages}>
           <AnalyticsScript domain={plausibleDomain} />
+          <SitePulse locale={locale} />
           <a
             href="#content"
             className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:text-gold-fg"

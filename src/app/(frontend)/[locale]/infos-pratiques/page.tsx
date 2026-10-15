@@ -1,7 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { CmsText } from '@/components/CmsText'
 
-import { BookStayLink } from '@/components/BookStayLink'
 import { Reveal } from '@/components/Reveal'
 import { TravelGuide } from '@/components/venue/TravelGuide'
 import { VenueStage } from '@/components/venue/VenueStage'
@@ -18,7 +17,7 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params
   return buildPageMetadata(locale, 'infoTitle', 'infoDescription', '/infos-pratiques', {
-    image: '/venue/lobby-atrium.jpg',
+    image: '/venue/entrance.jpg',
   })
 }
 
@@ -44,6 +43,7 @@ export default async function PracticalInfoPage({ params }: PageProps) {
       hotel={t('hotel')}
       intro={t('intro')}
       stats={stats}
+      bookLabel={nav('discoverPasses')}
     >
       <VenueStay
         locale={locale}
@@ -63,22 +63,22 @@ export default async function PracticalInfoPage({ params }: PageProps) {
         nights={t('nights')}
         occupancy={(count) => stay('occupancy', { count })}
         seePasses={nav('discoverPasses')}
+        perPerson={stay('perPerson')}
+        ctaTitle={t('ctaTitle')}
+        ctaBody={t('ctaBody')}
         stays={[
           {
-            kicker: '01',
             body: t('catTwoBedBody'),
-            extraSrc: '/venue/room.jpg?v=1',
-            extraPosition: 'center 58%',
+            extraSrc: '/venue/apt-bedroom.jpg?v=1',
+            extraPosition: 'center 48%',
           },
           {
-            kicker: '02',
             body: t('catOneBedBody'),
+            extraSrc: '/venue/apt-living.jpg?v=1',
+            extraPosition: 'center 52%',
           },
           {
-            kicker: '03',
             body: t('catDoubleBody'),
-            extraSrc: '/venue/hotel-room.jpg?v=1',
-            extraPosition: 'center 55%',
           },
         ]}
       />
@@ -151,18 +151,6 @@ export default async function PracticalInfoPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <section className="border-t border-white/10 px-5 py-16 sm:px-10 lg:px-16">
-        <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
-          <div>
-            <p className="font-poster text-[clamp(2.2rem,5vw,3.8rem)] leading-[0.9]">{t('ctaTitle')}</p>
-            <p className="mt-4 max-w-[28rem] text-paper/70">{t('ctaBody')}</p>
-          </div>
-          <BookStayLink className="shrink-0">
-            {nav('discoverPasses')}
-            <span className="film-cta-mark" aria-hidden />
-          </BookStayLink>
-        </div>
-      </section>
     </VenueStage>
   )
 }
