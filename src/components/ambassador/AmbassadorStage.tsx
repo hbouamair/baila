@@ -30,11 +30,9 @@ export function AmbassadorStage({
   return (
     <div className="bg-night text-paper">
       <section className="ambassador-hero px-5 pt-32 pb-16 sm:px-10 sm:pt-36 lg:px-16 lg:pb-20">
-        <div className="mx-auto max-w-[46rem]">
-          <p className="venue-copy font-script text-[clamp(2.2rem,4.4vw,3.6rem)] leading-[1.1] text-blush">{titleLead}</p>
-          <h1 className="venue-copy font-poster mt-3 text-[clamp(3.2rem,8vw,6.6rem)] leading-[0.95] tracking-[-0.03em]">
-            {title}
-          </h1>
+        <div className="ambassador-hero-copy mx-auto max-w-[46rem]">
+          <p className="venue-copy font-script text-[clamp(2rem,8vw,3.6rem)] leading-[1.1] text-blush">{titleLead}</p>
+          <h1 className="ambassador-title venue-copy font-poster mt-3">{title}</h1>
           <div className="venue-copy mt-6">
             <HotelRule />
           </div>
@@ -49,8 +47,8 @@ export function AmbassadorStage({
       </section>
 
       <section id="apply" className="scroll-mt-28 px-5 py-[var(--space-section)] sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-[76rem] items-start gap-6 lg:grid-cols-12 lg:gap-8">
-          <Reveal className="ambassador-panel p-7 sm:p-8 lg:sticky lg:top-28 lg:col-span-4">
+        <div className="mx-auto grid min-w-0 max-w-[76rem] items-start gap-6 lg:grid-cols-12 lg:gap-8">
+          <Reveal className="ambassador-panel min-w-0 p-5 sm:p-8 lg:sticky lg:top-28 lg:col-span-4">
             <h2 className="font-poster text-[clamp(2.2rem,4vw,3.4rem)] leading-[0.95]">{apply}</h2>
             <div className="mt-5">
               <HotelRule />
@@ -61,7 +59,7 @@ export function AmbassadorStage({
               <p className="mt-2 text-sm text-pretty text-paper/78">{nextBody}</p>
             </div>
           </Reveal>
-          <Reveal className="lg:col-span-8" delay={80}>
+          <Reveal className="min-w-0 lg:col-span-8" delay={80}>
             {children}
           </Reveal>
         </div>

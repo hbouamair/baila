@@ -1162,6 +1162,35 @@ summary::-webkit-details-marker {
   text-align: center;
 }
 
+.ambassador-hero-copy {
+  container-type: inline-size;
+}
+
+.ambassador-title {
+  max-width: 100%;
+  font-size: clamp(1.85rem, 9vw, 6.4rem);
+  font-size: clamp(1.85rem, 11.2cqi, 6.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.ambassador-fields,
+.ambassador-choices {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.ambassador-fields {
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+}
+
+.ambassador-fields > *,
+.ambassador-choices > * {
+  min-width: 0;
+}
+
 .ambassador-hero::before {
   content: '';
   position: absolute;
@@ -1213,6 +1242,7 @@ summary::-webkit-details-marker {
 
 .ambassador-form .film-cta {
   width: 100%;
+  max-width: 100%;
   justify-content: space-between;
 }
 

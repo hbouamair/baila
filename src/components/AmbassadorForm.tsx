@@ -124,13 +124,13 @@ export function AmbassadorForm({ locale }: { locale: string }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="ambassador-form">
-      <div className="space-y-6 p-6 sm:p-8 lg:p-10">
+    <form onSubmit={onSubmit} className="ambassador-form min-w-0">
+      <div className="space-y-6 p-5 sm:p-8 lg:p-10">
         <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" />
         <input type="checkbox" name="botcheck" tabIndex={-1} className="hidden" />
         <p className="text-sm text-paper/55">{t('requiredHint')}</p>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="ambassador-fields">
           <label className="block text-sm text-paper/80">
             {t('fullName')} *
             <input required name="name" autoComplete="name" className="field mt-2" />
@@ -155,7 +155,7 @@ export function AmbassadorForm({ locale }: { locale: string }) {
 
         <fieldset className="space-y-2">
           <legend className="text-sm text-paper/80">{t('communityQ')}</legend>
-          <div className="mt-3 grid gap-2 sm:grid-cols-2" onChange={(event) => setCommunity((event.target as HTMLInputElement).value)}>
+          <div className="ambassador-choices mt-3" onChange={(event) => setCommunity((event.target as HTMLInputElement).value)}>
             <Choice type="radio" name="community" value="school">
               {t('communitySchool')}
             </Choice>
@@ -176,7 +176,7 @@ export function AmbassadorForm({ locale }: { locale: string }) {
 
         <fieldset className="space-y-2">
           <legend className="text-sm text-paper/80">{t('peopleQ')} *</legend>
-          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          <div className="ambassador-choices mt-3">
             <Choice type="radio" name="people" value="1-5" required>
               {t('people1')}
             </Choice>
@@ -197,7 +197,7 @@ export function AmbassadorForm({ locale }: { locale: string }) {
 
         <fieldset className="space-y-2">
           <legend className="text-sm text-paper/80">{t('promoteQ')}</legend>
-          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          <div className="ambassador-choices mt-3">
             <Choice type="checkbox" name="promote" value="instagram">
               {t('promoteInstagram')}
             </Choice>
