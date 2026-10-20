@@ -1,6 +1,8 @@
-import { goandanceEventUrl } from '@/lib/goandance'
+import { getPathname } from '@/i18n/navigation'
+import type { AppLocale } from '@/i18n/routing'
 import { HOTEL_NAME } from '@/lib/hotel'
 import { absoluteUrl, getSiteUrl } from '@/lib/site'
+import { featuredArtists, stayPackages } from '@/lib/stays'
 
 type EventCopy = {
   name: string
@@ -36,9 +38,12 @@ export function websiteJsonLd() {
 
 export function eventJsonLd(locale: string, copy: EventCopy) {
   const site = getSiteUrl()
+  const pageUrl = `${site}/${locale}`
+  const offerUrl = `${site}${getPathname({ locale: locale as AppLocale, href: '/pass' })}`
+
   return {
     '@context': 'https://schema.org',
-    '@type': 'DanceEvent',
+    '@type': ['Event', 'DanceEvent'],
     '@id': `${site}/#event`,
     name: copy.name,
     description: copy.description,
@@ -46,32 +51,44 @@ export function eventJsonLd(locale: string, copy: EventCopy) {
     endDate: '2027-05-24',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',
-    image: [absoluteUrl('/cinematic/nights.jpg'), absoluteUrl('/artists/lineup-hero.jpg')],
-    url: site,
+    image: [
+      absoluteUrl('/artists/lineup-hero.jpg'),
+      absoluteUrl('/cinematic/nights.jpg'),
+      absoluteUrl('/cinematic/hero.jpg'),
+    ],
+    url: pageUrl,
     inLanguage: locale,
     organizer: {
       '@type': 'Organization',
       '@id': `${site}/#organization`,
-      name: 'El Baile',
+      name: 'Bailaimos Festival by El Baile',
+      url: site,
     },
+    performer: featuredArtists.map((artist) => ({
+      '@type': artist.role === 'dj' ? 'Person' : 'PerformingGroup',
+      name: artist.name,
+      image: absoluteUrl(artist.photo.split('?')[0]),
+    })),
     location: {
       '@type': 'Place',
       name: HOTEL_NAME,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Av. du 7ème Art',
+        streetAddress: 'Avenue du 7ème Art',
         addressLocality: 'Marrakech',
+        addressRegion: 'Marrakech-Safi',
         postalCode: '40000',
         addressCountry: 'MA',
       },
     },
-    offers: {
+    offers: stayPackages.map((stay) => ({
       '@type': 'Offer',
-      url: goandanceEventUrl(locale),
+      name: stay.name[locale as AppLocale],
+      url: offerUrl,
+      price: stay.tiers.find((tier) => tier.id === 'early')?.price ?? stay.tiers[0].price,
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      validFrom: '2026-01-01',
-    },
+    })),
   }
 }
 
@@ -96,13 +113,11 @@ export function artistJsonLd(input: {
   image: string
   role: string
 }) {
-  const site = getSiteUrl()
   return {
     '@context': 'https://schema.org',
     '@type': input.role === 'dj' ? 'Person' : 'PerformingGroup',
     name: input.name,
-    image: absoluteUrl(input.image),
+    image: absoluteUrl(input.image.split('?')[0]),
     url: input.url,
-    performerIn: { '@id': `${site}/#event` },
   }
 }

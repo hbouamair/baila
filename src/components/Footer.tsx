@@ -19,6 +19,7 @@ const leftLinks = [
   { href: '/' as const, key: 'home' as const },
   { href: '/artistes' as const, key: 'artists' as const },
   { href: '/programme' as const, key: 'programme' as const },
+  { href: '/jack-and-jill' as const, key: 'jackJill' as const },
   { href: '/activites' as const, key: 'extras' as const },
   { href: '/ambassadeurs' as const, key: 'ambassadors' as const },
 ]

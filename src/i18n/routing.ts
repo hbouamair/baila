@@ -26,6 +26,11 @@ export const routing = defineRouting({
       en: '/program',
       es: '/programa',
     },
+    '/jack-and-jill': {
+      fr: '/jack-et-jill',
+      en: '/jack-and-jill',
+      es: '/jack-and-jill',
+    },
     '/infos-pratiques': {
       fr: '/infos-pratiques',
       en: '/practical-info',

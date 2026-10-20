@@ -10,6 +10,7 @@ const STATIC_PAGES: Href[] = [
   '/pass',
   '/artistes',
   '/programme',
+  '/jack-and-jill',
   '/infos-pratiques',
   '/infos',
   '/activites',

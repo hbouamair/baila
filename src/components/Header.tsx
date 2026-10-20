@@ -14,6 +14,7 @@ const groups = [
     items: [
       { href: '/artistes' as const, key: 'artists' as const },
       { href: '/programme' as const, key: 'programme' as const },
+      { href: '/jack-and-jill' as const, key: 'jackJill' as const },
       { href: '/pass' as const, key: 'pass' as const },
     ],
   },
