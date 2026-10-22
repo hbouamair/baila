@@ -9,6 +9,22 @@ const dirname = path.dirname(__filename)
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/',
+        has: [{ type: 'host', value: 'www.bailaimosbachatafestival.com' }],
+        destination: 'https://bailaimosbachatafestival.com/',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.bailaimosbachatafestival.com' }],
+        destination: 'https://bailaimosbachatafestival.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
